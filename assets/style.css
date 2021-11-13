@@ -1,19 +1,62 @@
 @charset "utf-8";
 
+@import url(https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
 
 /* Paramètres généraux */
 
 :root {
-	--famille-titres: 'Open Sans', 'Lucida Sans', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
-	--famille-tags: var(--famille-titres);
+	--famille-titre: 'EB Garamond', 'Times New Roman', Times, serif;
+	--famille-texte: 'Open Sans', 'Lucida Sans', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
+	--famille-tags: var(--famille-texte);
 	--teinte-tags: 90, 50%;
+	--line-height: 1.45;
 }
 
 /* Typographie générale */
 
+body {
+	font-family: var(--famille-texte);
+	line-height: var(--line-height);
+}
+
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--famille-titres);
+	font-family: var(--famille-titre);
+	font-style: italic; font-feature-settings: "liga", "hlig", "clig";
+	text-rendering: optimizeLegibility;
+	text-align: left; page-break-after: avoid;
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.414213562rem; } /* = √2 */
+
+:lang(en) { font-style: italic; }
+
+/* Mise en page */
+
+body {
+	padding: 0 2.5rem;
+}
+
+h1 { margin: 4rem 0 1rem; }
+h2 { margin: 3rem 0 1rem; }
+h3 { margin: 2rem 0 1rem; }
+
+/* Auto-liens dans des titres */
+
+h2, h3, h4, h5, h6 { position: relative; }
+a.self-link {
+	position: absolute; left: -1.5em; width: 1em; height: calc(var(--line-height) * 1em);
+	text-align: center;
+	color: inherit;
+	transition: opacity 0.25s; opacity: 0.25; text-decoration: none;
+}
+a.self-link:hover { opacity: 1; text-decoration: none; }
+h2 > a.self-link::before, h3 > a.self-link::before, h4 > a.self-link::before,
+h5 > a.self-link::before, h6 > a.self-link::before {
+	content: "⚓"; /* TODO : ou § ? */
+	font-size: 84.089642%; /* = √√½ */
 }
 
 /* Principes de référence */
@@ -28,5 +71,10 @@ h1, h2, h3, h4, h5, h6 {
 	text-decoration: none; font-weight: normal;
 }
 
-/* Mise en page */
+/* Compléments */
 
+aside.bonus { /* TODO */ }
+
+/* Explications */
+
+details.rationale { /* TODO */ }
