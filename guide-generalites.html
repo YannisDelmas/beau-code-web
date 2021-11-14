@@ -9,35 +9,59 @@
 </head>
 <body data-glossary="principes.html .glossary">
 	<header>
-		<h1>Recommandations générales pour le codage web</h1>
+		<h1>BCW-1 Recommandations générales pour le codage web</h1>
 	</header>
 	<main>
 		<section>
 			<h2>
-				G1. Noms de fichiers
+				Noms de fichiers
 			</h2>
 			<p>
 				Les noms des fichiers et dossiers utilisés sur le web doivent respecter les règles suivantes.
 			</p>
 			<ul>
 				<li>Écriture en <abbr title="">kebab-case</abbr>, sans espace ni ponctuation.</li>
-				<li>Pas plus de 32 caractères, extension comprise.</li>
+				<li>Il est recommandé de ne pas dépasser 32 caractères, extension comprise.</li>
 				<li>Les mots employés doivent refléter de façon claire et compréhensible le contenu ou la fonction dans le site du fichier ou dossier.</li>
 				<li>Une ou plusieurs extensions indiquent le format d'un document.</li>
 			</ul>
 			<aside class="bonus">
-				<p>TODO: principe des extensions multiples (réf. doc Apache?)</p>
+				<p>Le chemin complet, depuis la racine, ne doit pas dépasser 127 caractères, séparateurs compris.</p>
+				<p>Il est possible d’utiliser plusieurs extensions pour indiquer un encodage, une langue, etc. Le principal serveur web, Apache, est capable d’adapter sa réponse à l’aide de ces informations [<a href="https://httpd.apache.org/docs/2.4/fr/mod/mod_mime.html">Apache <cite>Mod_mime</cite></a>].</p>
+				<p>
+					Pour des raisons de sécurité, les administrateurs web peuvent activer la directive <code class="language-http">X-Content-Type-Options: nosniff</code> qui demande au navigateur de respecter strictement les types MIME indiqués par le serveur web.
+					[<a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/X-Content-Type-Options">MDN <cite>X-Content-Type-Options</cite></a>]
+					[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/les-en-tetes-envoyes-par-le-serveur-desactivent-la-detection-automatique-du-type-mime-de-chaque-ressource">Opquast <cite>Règle 201</cite></a>]
+				</p>
 			</aside>
 			<details class="rationale"><summary>Justification</summary>
-				<p>TODO: référencement (réf. Google).</p>
-				<p>TODO: longueur maximum sur certains supports (NAS, DVD).</p>
-				<p>TODO: l'extension permet souvent de deviner le type MIME du fichier.</p>
+				<p>
+					TODO: référencement (réf. Google).
+					<a href="https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelines?hl=fr">Google <cite>Consignes aux webmasters</cite></a>
+				</p>
+				<p>
+					<a class="principle" href="principes.html#ppe-standard">respect des standards</a>
+					Nombre de serveurs sont paramétrés pour inférer le format des documents à partir de leurs extensions [<a href="https://httpd.apache.org/docs/2.4/fr/mod/mod_mime.html">Apache <cite>Mod_mime</cite></a>].
+				</p>
+				<p>
+					<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>
+					Mettre une extension et l’afficher limite les risques d’erreurs de format.
+				</p>
+				<p>
+					<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>
+					Plusieurs des systèmes de fichiers et ou explorateurs de fichiers ont une limitation d'environ 250 caractères Unicode (les URL ont une limite supérieure).
+					Toutefois, pour permettre un archivage sur disque optique, il faut adopter la limite du système de fichiers UDF, qui limite les chemins à à 127 caractères Unicode [<a href="https://fr.wikipedia.org/wiki/Universal_Disk_Format">Wikipedia <cite>UDF</cite></a>].
+				</p>
 			</details>
 		</section>
 	</main>
 	<footer>
 		<p>
-			<a href="https://github.com/YannisDelmas/beau-code-web">Le beau code web</a>
+			<a class="bcw" href="./">Le beau code web</a>
+			—
+			avec <i class="fas fa-heart" aria-valuetext="coeur" style="color: darkred;"></i> pour le web
+			—
+			<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Git</a>
 		</p>
 	</footer>
 	<script type="module" src="assets/glossary.js"></script>
