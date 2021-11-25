@@ -4,6 +4,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css);
 
+
 /* Paramètres généraux */
 
 :root {
@@ -16,8 +17,11 @@
 	--line-height: 1.45;
 	--inc-typo:    1.189207115; /* = √√2   : incrément typographique standard */
 	--inc-typo-x2: 1.414213562; /* = √2    : incrément typographique double */
-	--dec-typo:    0.840896415; /* = √2^-½ : décrément typographique standard */
+	--inc-typo-x4: 2;           /*           incrément typographique quadruple */
+	--inc-typo-x6: 2.828427124; /* = 2√2   : incrément typographique sextuple */
+	--dec-typo:    0.840896415; /* = 1/√√2 : décrément typographique standard */
 }
+
 
 /* Typographie générale */
 
@@ -28,7 +32,8 @@ body {
 
 h1, h2, h3, h4, h5, h6, .bcw {
 	font-family: var(--famille-titre);
-	font-style: italic; font-feature-settings: "liga", "hlig", "clig";
+	font-style: italic;
+	font-feature-settings: "liga", "hlig", "clig"; /* TODO ne fonctionne pas avec Google fonts */
 	text-shadow: 1px 1px 2px #999999;
 	text-rendering: optimizeLegibility;
 }
@@ -37,12 +42,21 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: left; page-break-after: avoid;
 }
 
-h1 { font-size: calc(var(--inc-typo-x2) * var(--inc-typo-x2) * var(--inc-typo-x2) * 1rem); }
-h2 { font-size: calc(var(--inc-typo-x2) * var(--inc-typo-x2) * 1rem); }
+h1 { font-size: calc(var(--inc-typo-x6) * 1rem); }
+h2 { font-size: calc(var(--inc-typo-x4) * 1rem); }
 h3 { font-size: calc(var(--inc-typo-x2) * 1rem); }
 h4 { font-size: calc(var(--inc-typo) * 1rem); }
 
-:lang(en) { font-style: italic; }
+
+/* Typographie linguistique */
+
+:lang(fr) > * { quotes: "«\2005" "\2005»" "‹\2005" "\2005›"; }
+:lang(en) > * { quotes: "“" "”" "‘" "’"; }
+/* cf. https://drafts.csswg.org/css-content/#quotes */
+
+:lang(fr) > :lang(en) {	font-style: italic; }
+:lang(fr) > q:lang(en)::before, :lang(fr) > q:lang(en)::after { font-style: normal; }
+
 
 /* Mise en page */
 
@@ -55,6 +69,7 @@ h1 { margin: 4rem 0 1rem; }
 h2 { margin: 3rem 0 1rem; }
 h3 { margin: 2rem 0 1rem; }
 p  { margin: 0.5rem 0; }
+ul, ol { padding: 0 0 0 4rem; }
 
 footer { margin: 2rem 0 0; }
 
@@ -70,21 +85,23 @@ a.self-link {
 a.self-link:hover { opacity: 1; text-decoration: none; }
 h2 > a.self-link::before, h3 > a.self-link::before, h4 > a.self-link::before,
 h5 > a.self-link::before, h6 > a.self-link::before {
-	content: "⚓"; /* TODO : ou § ? */
+	content: "⚓"; /* TODO ⚓ ou § ? */
 	font-size: calc(var(--dec-typo) * 100%);
 }
+
 
 /* Principes de référence */
 
 .principle {
 	font-family: var(--famille-tags);
-	font-size: 80%;
+	font-size: calc(var(--dec-typo) * 100%);
 	background-color: hsl(var(--teinte-tags), 75%);
 	color: hsl(var(--teinte-tags), 25%);
 	border: 1px solid hsl(var(--teinte-tags), 50%);
 	padding: 0 0.25rem; border-radius: 0.25rem;
 	text-decoration: none; font-weight: normal;
 }
+
 
 /* Compléments */
 
