@@ -53,9 +53,10 @@ h4 { font-size: calc(var(--inc-typo)    * var(--rapport-titre-texte) * 1rem); }
 
 /* Typographie linguistique */
 
-:lang(fr) > * { quotes: "«\2005" "\2005»" "‹\2005" "\2005›"; }
+:lang(fr) > * { quotes: "«\202F" "\202F»" "‹\202F" "\202F›"; }
 :lang(en) > * { quotes: "“" "”" "‘" "’"; }
 /* cf. https://drafts.csswg.org/css-content/#quotes */
+/* Unicode : U+202F Narrow No-Break Space (NNBSP) */
 
 :lang(fr) > :lang(en) {	font-style: italic; }
 :lang(fr) > q:lang(en)::before, :lang(fr) > q:lang(en)::after { font-style: normal; }
