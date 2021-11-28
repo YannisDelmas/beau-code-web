@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Principes — Le beau code web</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-glossary="principes.html">
@@ -128,40 +129,47 @@
 				Glossaire
 				<a class="self-link" href="#glossaire"></a>
 			</h2>
-			<dl>
-				<dt id="def-casse">casse</dt>
-				<dd>La <dfn>casse</dfn> est la différence entre minuscules et majuscules.</dd>
-				<dd>
-					Du temps des presses mécaniques, la <dfn>casse</dfn> était le casier dans lequel on rangeait les caractères. Ainsi <q>bas de casse</q>, en anglais <q lang="en">lower case</q>, est synonyme de <q>minuscule</q> et <q>haut de casse</q>, en anglais <q lang="en">upper case</q>, de <q>majuscule</q>.
-					[<a href="https://fr.wikipedia.org/wiki/Casse_(typographie)">Wikipedia</a>]
-				</dd>
-				<dt id="def-kebab-case" lang="en">kebab-case</dt>
-				<dd>
-					Mots écrits en minuscules, joints par des tirets.
-				</dd>
-				<dd>
-					Le terme <q lang="en">kebab</q> désigne de la viande rôtie, en particulier à la broche. Dans le -<dfn lang="en">kebab-case</dfn>⊸, les mots sont comme embrochés.
-				</dd>
-				<dt id="def-camel-case" lang="en">camelCase</dt>
-				<dd>
-					Mots collés entre eux, les initiales en majuscules sauf la première, les autres lettres en minuscules.
-				</dd>
-				<dd>
-					Le langage de programmation Camel a popularisé cette notation.
-					On dit parfois que les bosses sont au milieu comme pour un chameau.
-					En anglais, le mot <q lang="en">camel</q> désigne aussi bien un chameau 🐫 qu'un dromadaire 🐪.
-				</dd>
-				<dt id="def-pascal-case" lang="en">PascalCase</dt>
-				<dt id="def-studly-case" lang="en">StudlyCase</dt>
-				<dd>
-					Mots collés entre eux, les initiales en majuscules, les autres lettres en minuscules. 
-				</dd>
-				<dd>
-					Le langage de programmation Pascal a popularisé cette notation.
-					Le terme <dfn lang="en">PascalCase</dfn> est univoque.
-					Le terme <dfn lang="en">StudlyCase</dfn>, parfois employé, <em>peut</em>, lui, désigner d'autres écritures.
-				</dd>
-			</dl>
+			<section>
+				<h3>Typographie</h3>
+				<dl>
+					<dt>alphanumérique</dt>
+					<dd>
+						Un caractère <dfn>alphanumérique</dfn> est un chiffre ou lettre latine, minuscule ou majuscule, sans accent ni diacritique. Certains langages ajoutent également le souligné (<code class="language-none">_</code>).
+					</dd>
+					<dt id="def-casse">casse</dt>
+					<dd>La <dfn>casse</dfn> est la différence entre minuscules et majuscules.</dd>
+					<dd>
+						Du temps des presses mécaniques, la <dfn>casse</dfn> était le casier dans lequel on rangeait les caractères. Ainsi <q>bas de casse</q>, en anglais <q lang="en">lower case</q>, est synonyme de <q>minuscule</q> et <q>haut de casse</q>, en anglais <q lang="en">upper case</q>, de <q>majuscule</q>.
+						[<a href="https://fr.wikipedia.org/wiki/Casse_(typographie)">Wikipedia</a>]
+					</dd>
+					<dt id="def-kebab-case" lang="en">kebab-case</dt>
+					<dd>
+						Mots écrits en minuscules, joints par des tirets.
+					</dd>
+					<dd>
+						Le terme <q lang="en">kebab</q> désigne de la viande rôtie, en particulier à la broche. Dans le -<dfn lang="en">kebab-case</dfn>⊸, les mots sont comme embrochés.
+					</dd>
+					<dt id="def-camel-case" lang="en">camelCase</dt>
+					<dd>
+						Mots collés entre eux, les initiales en majuscules sauf la première, les autres lettres en minuscules.
+					</dd>
+					<dd>
+						Le langage de programmation Camel a popularisé cette notation.
+						On dit parfois que les bosses sont au milieu comme pour un chameau.
+						En anglais, le mot <q lang="en">camel</q> désigne aussi bien un chameau 🐫 qu'un dromadaire 🐪.
+					</dd>
+					<dt id="def-pascal-case" lang="en">PascalCase</dt>
+					<dt id="def-studly-case" lang="en">StudlyCase</dt>
+					<dd>
+						Mots collés entre eux, les initiales en majuscules, les autres lettres en minuscules. 
+					</dd>
+					<dd>
+						Le langage de programmation Pascal a popularisé cette notation.
+						Le terme <dfn lang="en">PascalCase</dfn> est univoque.
+						Le terme <dfn lang="en">StudlyCase</dfn>, parfois employé, <em>peut</em>, lui, désigner d'autres écritures.
+					</dd>
+				</dl>
+			</section>
 			<section>
 				<h3>Modalités aux termes de la [<a href="#bibid-RFC2119">RFC2119</a>]</h3>
 				<dl>
