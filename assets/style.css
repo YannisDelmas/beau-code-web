@@ -69,7 +69,7 @@ h1 { margin: 4rem 0 1rem; }
 h2 { margin: 3rem 0 1rem; }
 h3 { margin: 2rem 0 1rem; }
 p  { margin: 0.5rem 0; }
-ul, ol { padding: 0 0 0 4rem; }
+ul, ol, dd { margin: 0; padding: 0 0 0 4rem; }
 
 footer { margin: 2rem 0 0; }
 
@@ -90,7 +90,7 @@ h5 > a.self-link::before, h6 > a.self-link::before {
 }
 
 
-/* Principes de référence */
+/* Principes de référence et modalités RFC-2119 */
 
 .principle {
 	font-family: var(--famille-tags);
@@ -101,6 +101,8 @@ h5 > a.self-link::before, h6 > a.self-link::before {
 	padding: 0 0.25rem; border-radius: 0.25rem;
 	text-decoration: none; font-weight: normal;
 }
+
+.rfc2119 { font-variant: small-caps; }
 
 
 /* Compléments */
@@ -132,3 +134,7 @@ details.rationale > summary {
 	color: hsl(var(--teinte-justifications), 20%);
 	font-weight: bold;
 }
+
+/* Affichage des codes */
+
+.no-wrap, :not(pre) > code.no-wrap { white-space: nowrap; }
