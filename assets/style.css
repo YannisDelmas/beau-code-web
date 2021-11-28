@@ -21,7 +21,6 @@
 	--inc-typo-x3: 1.681792831; /* = √2√√2 : incrément typographique triple */
 	--inc-typo-x4: 2;           /*           incrément typographique quadruple */
 	--inc-typo-x6: 2.828427124; /* = 2√2   : incrément typographique sextuple */
-	--dec-typo:    0.840896415; /* = 1/√√2 : décrément typographique standard */
 }
 
 
@@ -77,6 +76,7 @@ ul, ol, dd { margin: 0; padding: 0 0 0 4rem; }
 
 footer { margin: 2rem 0 0; }
 
+
 /* Auto-liens dans des titres */
 
 h2, h3, h4, h5, h6 { position: relative; }
@@ -90,7 +90,7 @@ a.self-link:hover { opacity: 1; text-decoration: none; }
 h2 > a.self-link::before, h3 > a.self-link::before, h4 > a.self-link::before,
 h5 > a.self-link::before, h6 > a.self-link::before {
 	content: "⚓"; /* TODO ⚓ ou § ? */
-	font-size: calc(var(--dec-typo) * 100%);
+	font-size: calc(100% / var(--inc-typo));
 }
 
 
@@ -115,7 +115,7 @@ h2 .principle, h3 .principle, h4 .principle {
 
 aside, details.rationale {
 	margin: 1rem 4rem; padding: 0 1rem; border-radius: 1rem;
-	font-size: calc(var(--dec-typo) * 100%);
+	font-size: calc(100% / var(--inc-typo));
 }
 
 aside {
@@ -140,6 +140,7 @@ details.rationale > summary {
 	color: hsl(var(--teinte-justifications), 20%);
 	font-weight: bold;
 }
+
 
 /* Affichage des codes */
 
