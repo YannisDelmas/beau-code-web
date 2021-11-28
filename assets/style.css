@@ -98,12 +98,14 @@ h5 > a.self-link::before, h6 > a.self-link::before {
 
 .principle {
 	font-family: var(--famille-tags);
-	font-size: calc(var(--dec-typo) * 100%);
 	background-color: hsl(var(--teinte-tags), 75%);
 	color: hsl(var(--teinte-tags), 25%);
 	border: 1px solid hsl(var(--teinte-tags), 50%);
 	padding: 0 0.25rem; border-radius: 0.25rem;
 	text-decoration: none; font-weight: normal;
+}
+h2 .principle, h3 .principle, h4 .principle {
+	font-size: calc(100%  / var(--rapport-titre-texte));
 }
 
 .rfc2119 { font-variant: small-caps; }
