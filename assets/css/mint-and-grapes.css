@@ -1,0 +1,278 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css);
+
+
+/* Paramètres généraux */
+
+:root {
+  --famille-titre: 'Merriweather', 'Times', serif;
+  --famille-texte: 'Open Sans', 'Lucida Sans', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
+  --rapport-titre-texte: 1.2; /* rapport de hauteur d'x entre les deux familles précédentes */
+  --famille-tags: var(--famille-texte);
+  --teinte-primaire: 165, 88%;
+  --teinte-secondaire: 288, 30%;
+  --teinte-complements: 0, 0%;
+  --teinte-justifications: 200, 50%;
+  --teinte-corps-texte: #555;
+  --teinte-titre: #333;
+  --line-height: 1.55;
+  --inc-typo: 1.189207115; /* = √√2   : incrément typographique standard simple */
+  --inc-typo-x2: 1.414213562; /* = √2    : incrément typographique double */
+  --inc-typo-x3: 1.681792831; /* = √2√√2 : incrément typographique triple */
+  --inc-typo-x4: 2; /* incrément typographique quadruple */
+  --inc-typo-x6: 2.828427124; /* = 2√2   : incrément typographique sextuple */
+}
+
+
+/* Typographie générale */
+
+::selection {
+  color: #fff;
+  background-color: hsl(var(--teinte-secondaire), 60%);
+}
+
+body {
+  font-family: var(--famille-texte);
+  line-height: var(--line-height);
+  color: var(--teinte-corps-texte);
+  background-image: url(../images/ecailles.png);
+}
+body:before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: hsl(var(--teinte-secondaire), 41%);
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.bcw {
+  font-family: var(--famille-titre);
+  color: var(--teinte-titre);
+  font-feature-settings: "liga", "hlig", "clig"; /* TODO ne fonctionne pas avec Google fonts */
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: left;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: calc(var(--inc-typo-x4) * var(--rapport-titre-texte) * 1rem);
+  color: hsl(var(--teinte-secondaire), 41%);
+}
+
+h2 {
+  font-size: calc(var(--inc-typo-x3) * var(--rapport-titre-texte) * 1rem);
+}
+
+h3 {
+  font-size: calc(var(--inc-typo-x2) * var(--rapport-titre-texte) * 1rem);
+}
+
+h4 {
+  font-size: calc(var(--inc-typo) * var(--rapport-titre-texte) * 1rem);
+}
+
+.bcw {
+  font-size: calc(var(--rapport-titre-texte) * 100%);
+}
+
+
+/* Typographie linguistique */
+
+:lang(fr)>* {
+  quotes: "«\202F""\202F»""‹\202F""\202F›";
+}
+
+:lang(en)>* {
+  quotes: "“""”""‘""’";
+}
+
+/* cf. https://drafts.csswg.org/css-content/#quotes */
+/* Unicode : U+202F Narrow No-Break Space (NNBSP) */
+
+:lang(fr)> :lang(en) {
+  font-style: italic;
+}
+
+:lang(fr)>q:lang(en)::before,
+:lang(fr)>q:lang(en)::after {
+  font-style: normal;
+}
+
+
+/* Mise en page */
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+h1 {
+  margin: 4rem 0 1rem;
+}
+
+h2 {
+  margin: 3rem 0 1rem;
+}
+
+h3 {
+  margin: 2rem 0 1rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+ul,
+ol,
+dd {
+  margin: 0;
+  padding: 0 0 0 4rem;
+}
+
+footer {
+  margin: 2rem 0 0;
+}
+
+
+/* Auto-liens dans des titres */
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+}
+
+a.self-link {
+  position: absolute;
+  left: -1.5em;
+  width: 1em;
+  height: calc(var(--line-height) * 1em);
+  text-align: center;
+  color: inherit;
+  transition: opacity 0.25s;
+  opacity: 0.3;
+  text-decoration: none;
+}
+
+a.self-link:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+h2>a.self-link::before,
+h3>a.self-link::before,
+h4>a.self-link::before,
+h5>a.self-link::before,
+h6>a.self-link::before {
+  content: "💬"; /* TODO ⚓ ou § ? */
+  font-size: calc(100% / var(--inc-typo));
+}
+
+a {
+  color: hsl(var(--teinte-primaire), 41%);
+}
+a:visited {
+  color: hsl(var(--teinte-secondaire), 60%);
+}
+a:hover {
+  opacity: .7;
+}
+
+/* Principes de référence et modalités RFC-2119 */
+
+.principle {
+  font-family: var(--famille-tags);
+  background-color: hsl(var(--teinte-primaire), 85%);
+  color: hsl(var(--teinte-primaire), 35%);
+  border: 1px solid hsl(var(--teinte-primaire), 60%);
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: normal;
+}
+.principle:visited {
+  background-color: hsl(var(--teinte-primaire), 85%);
+  color: hsl(var(--teinte-primaire), 35%);
+  border: 1px solid hsl(var(--teinte-primaire), 60%);
+}
+
+h2 .principle,
+h3 .principle,
+h4 .principle {
+  font-size: calc(100% / var(--rapport-titre-texte));
+}
+
+.rfc2119 {
+  font-variant: small-caps;
+}
+
+
+/* Compléments */
+
+aside,
+details.rationale {
+  margin: 1rem 4rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  font-size: calc(100% / var(--inc-typo));
+}
+
+aside {
+  border: 1px solid hsl(var(--teinte-complements), 40%);
+  background-color: hsla(var(--teinte-complements), 75%, 0.2);
+}
+
+aside.bonus::before {
+  content: "+";
+  display: block;
+  font-size: calc(var(--inc-typo-x2) * 100%);
+  font-weight: bold;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin: -0.5rem 0;
+  border-radius: 0.5rem;
+  text-align: center;
+  background-color: hsl(var(--teinte-complements), 40%);
+}
+
+details.rationale {
+  border: 1px solid hsl(var(--teinte-justifications), 40%);
+  background-color: hsla(var(--teinte-justifications), 75%, 0.2);
+}
+
+details.rationale>summary {
+  color: hsl(var(--teinte-justifications), 20%);
+  font-weight: bold;
+}
+
+
+/* Affichage des codes */
+
+.no-wrap,
+:not(pre)>code.no-wrap {
+  white-space: nowrap;
+}

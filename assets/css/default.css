@@ -65,7 +65,7 @@ h4 { font-size: calc(var(--inc-typo)    * var(--rapport-titre-texte) * 1rem); }
 
 body {
 	max-width: 960px; margin: 0 auto; padding: 0 2.5rem;
-	background-image: url(ricepaper.png);
+	background-image: url(../images/ricepaper.png);
 }
 
 h1 { margin: 4rem 0 1rem; }
