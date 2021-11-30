@@ -10,7 +10,7 @@
 :root {
   --famille-titre: 'Merriweather', 'Times', serif;
   --famille-texte: 'Open Sans', 'Lucida Sans', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
-  --rapport-titre-texte: 1.2; /* rapport de hauteur d'x entre les deux familles précédentes */
+  --rapport-titre-texte: 1; /* rapport de hauteur d'x entre les deux familles précédentes */
   --famille-tags: var(--famille-texte);
   --teinte-primaire: 165, 88%;
   --teinte-secondaire: 288, 30%;
@@ -257,6 +257,7 @@ aside.bonus::before {
   border-radius: 0.5rem;
   text-align: center;
   background-color: hsl(var(--teinte-complements), 40%);
+  color: hsl(var(--teinte-complements), 75%);
 }
 
 details.rationale {
