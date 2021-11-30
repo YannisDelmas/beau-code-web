@@ -16,8 +16,15 @@
   --teinte-secondaire: 288, 30%;
   --teinte-complements: 0, 0%;
   --teinte-justifications: 200, 50%;
-  --teinte-corps-texte: #555;
-  --teinte-titre: #333;
+  --couleur-corps-texte: #555;
+  --couleur-titre: #333;
+  --couleur-mark-text: var(--couleur-titre);
+  --couleur-mark1: hsl(50, 60%, 80%);
+  --couleur-mark2: hsl(110, 60%, 80%);
+  --couleur-mark3: hsl(170, 60%, 80%);
+  --couleur-mark4: hsl(230, 60%, 80%);
+  --couleur-mark5: hsl(290, 60%, 80%);
+  --couleur-mark6: hsl(350, 60%, 80%);
   --line-height: 1.55;
   --inc-typo: 1.189207115; /* = √√2   : incrément typographique standard simple */
   --inc-typo-x2: 1.414213562; /* = √2    : incrément typographique double */
@@ -37,7 +44,7 @@
 body {
   font-family: var(--famille-texte);
   line-height: var(--line-height);
-  color: var(--teinte-corps-texte);
+  color: var(--couleur-corps-texte);
   background-image: url(../images/ecailles.png);
 }
 body:before {
@@ -59,7 +66,7 @@ h5,
 h6,
 .bcw {
   font-family: var(--famille-titre);
-  color: var(--teinte-titre);
+  color: var(--couleur-titre);
   font-feature-settings: "liga", "hlig", "clig"; /* TODO ne fonctionne pas avec Google fonts */
   text-rendering: optimizeLegibility;
 }
@@ -187,9 +194,12 @@ h3>a.self-link::before,
 h4>a.self-link::before,
 h5>a.self-link::before,
 h6>a.self-link::before {
-  content: "💬"; /* TODO ⚓ ou § ? */
+  content: "💬";
   font-size: calc(100% / var(--inc-typo));
 }
+
+
+/* Autres règles de mise en forme */
 
 a {
   color: hsl(var(--teinte-primaire), 41%);
@@ -200,6 +210,19 @@ a:visited {
 a:hover {
   opacity: .7;
 }
+
+.sr-only { /* only for screen readers */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 
 /* Principes de référence et modalités RFC-2119 */
 
@@ -276,4 +299,40 @@ details.rationale>summary {
 .no-wrap,
 :not(pre)>code.no-wrap {
   white-space: nowrap;
+}
+
+mark[title="1"].label,
+code mark[title="1"] {
+	background-color: var(--couleur-mark1);
+}
+mark[title="2"].label,
+code mark[title="2"] {
+	background-color: var(--couleur-mark2);
+}
+mark[title="3"].label,
+code mark[title="3"] {
+	background-color: var(--couleur-mark3);
+}
+code mark[title] {
+	position: relative;
+}
+code mark[title]::before {
+	content: attr(title);
+	font-size: calc(100% / var(--inc-typo-x2));
+	position: absolute;
+	top: -0.5em;
+	left: -0.75em;
+	background-color: inherit;
+}
+mark.label,
+code mark[title]::before {
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+	line-height: 1em;
+	border-radius: 0.5em;
+	text-align: center;
+	color: var(--couleur-mark-text);
+	font-family: var(--famille-texte);
+	font-style: normal;
 }
