@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
 				let i = definitionElement;
 				while ( (( i = i.previousElementSibling )) && (i.tagName.toLowerCase() == 'dt') ) {
 					glossary[ i.textContent.trim() ] = definition;
+					// Variantes orthographiques
+					if ( i.dataset.glossaryVariants !== undefined ) {
+						i.dataset.glossaryVariants.split(/\s/).forEach(function(alias){
+							glossary[ alias ] = definition;
+						});
+					}
 				}
 			});
 			
