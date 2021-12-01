@@ -313,6 +313,18 @@ mark[title="3"].label,
 code mark[title="3"] {
 	background-color: var(--couleur-mark3);
 }
+mark[title="4"].label,
+code mark[title="4"] {
+	background-color: var(--couleur-mark4);
+}
+mark[title="5"].label,
+code mark[title="5"] {
+	background-color: var(--couleur-mark5);
+}
+mark[title="6"].label,
+code mark[title="6"] {
+	background-color: var(--couleur-mark6);
+}
 code mark[title] {
 	position: relative;
 }
