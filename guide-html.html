@@ -14,10 +14,57 @@
 		<h1>BCW-2 Recommandations pour le codage en HTML</h1>
 	</header>
 	<main>
-		<p>
-			Il n’y a pas de recommandation pour l’instant.
-			N’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
-		</p>
+		<section>
+			<h3>
+				Validité
+			</h3>
+			<ol>
+				<li>L'encodage DOIT être précisé. RECOMMANDÉ: utf-8 (sans BOM).</li>
+				<li>
+					<p>
+						Le balisage DOIT être valide.
+						En particulier, les éléments DOIVENT être correctement imbriqués
+						et les caractères spéciaux DOIVENT toujours être correctement échappés par des entités, en particulier les <code class="language-none">&amp;</code> dans les URI.
+					</p>
+					<aside class="bonus"><p>
+						Les caractères invisibles (p.&nbsp;ex. <code class="language-html">&amp;nbsp;</code>) DEVRAIENT également l'être, mais pas les autres caractères (p.&nbsp;ex. € ou ⓒ).
+					</p></aside>
+					<p>Outils: navigateur, vérificateur de l'éditeur de code.</p>
+				</li>
+				<li>
+					<p>
+						Le code DEVRAIT être conforme à une version choisie du format choisi.Format RECOMMANDÉ: HTML5 en syntaxe HTML.
+					</p>
+					<p>Outils: valideur W3C</p>
+				</li>
+				<li>Les éléments DEVRAIENT toujours avoir une balise de fermeture, sauf éventuellement pour les éléments toujours vides (link, img, br).</li>
+				<li>
+					Les valeurs d'attribut DOIVENT toujours être entre guillemets (simple ou double), sauf peut-être pour les attributs booléens (p.ex. required, disabled, open).
+					<aside class="bonus">
+						<p>
+							Si le code a vocation à être lu informatiquement ou à être intégré à des pages XHTML (p.ex. un composant réutilisable), il est RECOMMANDÉ d'utiliser une écriture compatible avec le XML, Notamment:
+						</p>
+						<ul>
+							<li>Noms de balises et d'attributs en minuscules (le XML est sensibles à la casse). (attention toutefois…)</li>
+							<li>Les attributs, même booléens, ont toujours une valeur, vide si besoin.</li>
+							<li>Les commentaires ne contiennent pas la séquence --.</li>
+						</ul>
+						<p>
+							Note: Plutôt que la syntaxe XHTML, il est souvent plus commode d'intégrer les données dans un format directement utile (JSON-LD, RDFa…), d'autant que les règles précédentes sont souvent suffisantes pour assurer l'interprétation du document. La syntaxe XHTML N'EST PAS RECOMMANDÉ pour les concepteurs débutants.
+						</p>
+					</aside>
+				</li>
+			</ol>
+			<details class="rationale" open><summary>Justification</summary>
+				TODO respect des std ("Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and that ensures proper HTML usage."), sécurité (interprétation univoque).
+			</details>
+		</section>
+		<nav>
+			<p>
+				Pour d’autres projets de recommandation,
+				n’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
+			</p>
+		</nav>
 	</main>
 	<footer>
 		<p>
