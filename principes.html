@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Principes — Le beau code web</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="assets/css/mint-and-grapes.css">
+</head>
+<body data-glossary="principes.html">
+	<header>
+		<h1>BCW-0 Principes du «&nbsp;Beau code web&nbsp;»</h1>
+	</header>
+	<main>
+
+		<section id="public">
+			<h2>
+				À qui s’adresse ce guide
+				<a class="self-link" href="#public"></a>
+			</h2>
+			<p>
+				Ce guide a été créé par des enseignants et professionnels du web de la communauté du <a href="http://sha.univ-poitiers.fr/masterweb/">master <q>Web éditorial et stratégie UX</q></a>.
+				Il s’adresse aux étudiants et aux professionnels de la communication au moyen
+				de sites web ou, plus généralement, d’applications web.
+			</p>
+		</section>
+		<section id="objet">
+			<h2>
+				Objet de ce guide
+				<a class="self-link" href="#objet"></a>
+			</h2>
+			<p>
+				Ce guide a pour objet la conception technique d’applications web, dans son sens le plus général. Une application web peut ne proposer que de la consultation de contenu, jusqu'à la manipulation de données et de processus spécifiques (applications métier).
+				On entendra donc par applications web, notamment&nbsp;:
+			</p>
+			<ul>
+				<li>les sites web (statiques, dynamiques, CMS, e-commerce, etc.),</li>
+				<li>les applications fonctionnant sur le web (dashboard, applications métiers, etc.),</li>
+				<li>les applications web destinées aux mobiles,</li>
+			</ul>
+			<p>
+				dans la mesure où ces applications sont concernées&nbsp;:
+			</p>
+			<ul>
+				<li>par les langages abordés,</li>
+				<li>par le public visé.</li>
+			</ul>			
+		</section>
+		<section id="principes">
+			<h2>
+				Principes et objectifs
+				<a class="self-link" href="#principes"></a>
+			</h2>
+
+			<section id="ppe-service">
+				<h3>
+					1. Principe de <a class="principle" href="#ppe-service">service</a> de l’utilisateur
+					<a class="self-link" href="#ppe-service"></a>
+				</h3>
+				<p>
+					Une application web est d’abord au service de ses utilisateurs, de ses lecteurs.
+					On s’attachera donc à l’expérience utilisateur également dans la façon de coder.
+				</p>
+			</section>
+
+			<section id="ppe-securite">
+				<h3>
+					2. Objectif de <a class="principle" href="#ppe-securite">sécurité</a>
+					<a class="self-link" href="#ppe-securite"></a>
+				</h3>
+				<p>
+					Découle du principe de <a class="principle" href="#ppe-service">service</a>&nbsp;: quand plusieurs façons de coder sont possibles, il faut s’efforcer de privilégier la plus sûre.
+				</p>
+			</section>
+
+			<section id="ppe-performance">
+				<h3>
+					3. Objectif de <a class="principle" href="#ppe-performance">performance</a>
+					<a class="self-link" href="#ppe-performance"></a>
+				</h3>
+				<p>
+					Découle du principe de <a class="principle" href="#ppe-service">service</a>&nbsp;: quand plusieurs façons de coder sont possibles, il faut s’efforcer de privilégier l’efficience, en temps d’exécution ou de chargement ou en ressources consommées.
+				</p>
+			</section>
+
+			<section id="ppe-maintenance">
+				<h3>
+					4. Principe de <a class="principle" href="#ppe-maintenance">maintenabilité</a>
+					<a class="self-link" href="#ppe-maintenance"></a>
+				</h3>
+				<p>
+					Les applications web ont vocation à durer dans le temps.
+					Il convient donc de prévoir que leurs professionnels y reviennent régulièrement.
+					La maintenabilité est le fait de pouvoir comprendre un code aisément,
+					s'y repérer, y modifier ce qu'il est nécessaire de modifier, pas plus.
+				</p>
+			</section>
+
+			<section id="ppe-standard">
+				<h3>
+					5. Objectif de <a class="principle" href="#ppe-standard">respect des standards</a>
+					<a class="self-link" href="#ppe-standard"></a>
+				</h3>
+				<p>
+					Découle du principe de <a class="principle" href="#ppe-maintenance">maintenabilité</a>&nbsp;: on ne devrait pas avoir à revenir sur un document quand il n'y a pas besoin de modifier son contenu.
+					Le respect des standards permet une plus grande durabilité du code.
+				</p>
+				<p>
+					Ce principe facilite aussi la collaboration entre plusieurs acteurs, simultanément ou au cours de la durée de vie d'un code.
+				</p>
+				<p>
+					Parmi les standards reconnus, on s'attachera en particulier à respecter l'esprit des <a href="https://www.w3.org/TR/html-design-principles/"><cite>Principes de conception du HTML</cite></a> [<a href="#bibid-HTMLDP">HTMLDP</a>], notamment&nbsp;:
+					la compatibilité,
+					l'utilité, dont la priorité au terrain,
+					la modularité (<i lang="en">separation of concerns</i>),
+					l'interopérabilité et
+					l'accès universel.
+					La priorité au terrain impose, notamment, de s'attacher autant que possible aux usages déjà répandus, quand ils ne sont pas contraires aux grands principes retenus ici.
+				</p>
+			</section>
+
+			<section id="ppe-lisible">
+				<h3>
+					6. Objectif de <a class="principle" href="#ppe-lisible">lisibilité</a>
+					<a class="self-link" href="#ppe-lisible"></a>
+				</h3>
+				<p>
+					Découle du principe de <a class="principle" href="#ppe-maintenance">maintenabilité</a>&nbsp;:
+					le code doit minimiser la charge cognitive de sa lecture.
+					En particulier, il convient d'être régulier, d'éviter les formulations ambiguës ou techniquement ou conceptuellement complexes quand elles ne sont pas nécessaires.
+				</p>
+			</section>
+
+			<section id="ppe-coherence">
+				<h3>
+					7. Objectif de <a class="principle" href="#ppe-coherence">cohérence</a>
+					<a class="self-link" href="#ppe-coherence"></a>
+				</h3>
+				<p>
+					Découle du principe de <a class="principle" href="#ppe-lisible">Lisibilité</a>&nbsp;:
+					la cohérence est le fait d'appliquer des choix de façon homogène au sein d'un projet ou d'un collectif de travail.
+					Elle permet ainsi d'alléger la charge cognitive pour lire, créer ou modifier un code.
+				</p>
+			</section>
+
+		</section><!-- /#principes -->
+
+		<section id="glossaire" class="glossary">
+			<h2>
+				Glossaire
+				<a class="self-link" href="#glossaire"></a>
+			</h2>
+			<section>
+				<h3>Typographie</h3>
+				<dl>
+					<dt>alphanumérique</dt>
+					<dd>
+						Un caractère <dfn>alphanumérique</dfn> est un chiffre ou lettre latine, minuscule ou majuscule, sans accent ni diacritique. Certains langages ajoutent également le souligné (<code class="language-none">_</code>).
+					</dd>
+					<dt id="def-casse">casse</dt>
+					<dd>La <dfn>casse</dfn> est la différence entre minuscules et majuscules.</dd>
+					<dd>
+						Du temps des presses mécaniques, la <dfn>casse</dfn> était le casier dans lequel on rangeait les caractères. Ainsi <q>bas de casse</q>, en anglais <q lang="en">lower case</q>, est synonyme de <q>minuscule</q> et <q>haut de casse</q>, en anglais <q lang="en">upper case</q>, de <q>majuscule</q>.
+						[<a href="https://fr.wikipedia.org/wiki/Casse_(typographie)">Wikipedia</a>]
+					</dd>
+					<dt id="def-kebab-case" lang="en">kebab-case</dt>
+					<dd>
+						Mots écrits en minuscules, joints par des tirets.
+					</dd>
+					<dd>
+						Le terme <q lang="en">kebab</q> désigne de la viande rôtie, en particulier à la broche. Dans le -<dfn lang="en">kebab-case</dfn>⊸, les mots sont comme embrochés.
+					</dd>
+					<dt id="def-camel-case" lang="en">camelCase</dt>
+					<dd>
+						Mots collés entre eux, les initiales en majuscules sauf la première, les autres lettres en minuscules.
+					</dd>
+					<dd>
+						Le langage de programmation Camel a popularisé cette notation.
+						On dit parfois que les bosses sont au milieu comme pour un chameau.
+						En anglais, le mot <q lang="en">camel</q> désigne aussi bien un chameau 🐫 qu'un dromadaire 🐪.
+					</dd>
+					<dt id="def-pascal-case" lang="en">PascalCase</dt>
+					<dt id="def-studly-case" lang="en">StudlyCase</dt>
+					<dd>
+						Mots collés entre eux, les initiales en majuscules, les autres lettres en minuscules. 
+					</dd>
+					<dd>
+						Le langage de programmation Pascal a popularisé cette notation.
+						Le terme <dfn lang="en">PascalCase</dfn> est univoque.
+						Le terme <dfn lang="en">StudlyCase</dfn>, parfois employé, <em>peut</em>, lui, désigner d'autres écritures.
+					</dd>
+				</dl>
+			</section>
+			<section>
+				<h3>Modalités aux termes de la [<a href="#bibid-RFC2119">RFC2119</a>]</h3>
+				<dl>
+					<dt class="rfc2119" data-glossary-variants="doivent">doit</dt>
+					<dt class="rfc2119" data-glossary-variants="devront">devra</dt>
+					<dt class="rfc2119" data-glossary-variants="obligatoires">obligatoire</dt>
+					<dd>Ce(s) terme(s) désigne(nt) une exigence absolue de ce guide [<a href="#bibid-RFC2119">RFC2119</a>, §1].</dd>
+					<dt class="rfc2119">ne doit pas</dt>
+					<dt class="rfc2119">ne devra pas</dt>
+					<dd>Ce(s) terme(s) désigne(nt) une interdiction absolue de ce guide [<a href="#bibid-RFC2119">RFC2119</a>, §2].</dd>
+					<dt class="rfc2119" data-glossary-variants="devraient">devrait</dt>
+					<dt class="rfc2119" data-glossary-variants="recommandée recommandés recommandées">recommandé</dt>
+					<dd>Ce(s) terme(s) signifie(nt) <q>qu’il peut exister des raisons valables dans des circonstances particulières pour ignorer un élément précis, mais toutes les implications doivent être comprises et soigneusement pesées avant de choisir une voie différente</q> [<a href="#bibid-RFC2119">RFC2119</a>, §3].</dd>
+					<dt class="rfc2119">ne devrait pas</dt>
+					<dt class="rfc2119">non recommandé</dt>
+					<dd>Ce(s) terme(s) signifie(nt) <q>qu'il peut exister des raisons valides dans des circonstances particulières quand le comportement spécifique est acceptable ou même utile, mais les répercussions complètent devraient être comprise et le cas soigneusement évalué avant d'implémenter [ceci]</q> [<a href="#bibid-RFC2119">RFC2119</a>, §4].</dd>
+					<dt class="rfc2119" data-glossary-variants="peuvent">peut</dt>
+					<dt class="rfc2119" data-glossary-variants="facultative facultatifs facultatives">facultatif</dt>
+					<dd>Ce(s) terme(s) signifie(nt) que ce choix <q>qu’un élément est vraiment facultatif</q> [<a href="#bibid-RFC2119">RFC2119</a>, §5].</dd>
+					<dd><q>Un fabricant peut choisir d’inclure l’élément parce que un secteur particulier du marché le réclame ou parce que le fabricant pense que cela améliore le produit tandis qu’un autre fabricant peut omettre le même élément. Une mise en œuvre qui n’inclut pas une option particulière DOIT pouvoir interopérer avec une autre mise en œuvre qui n’inclut pas l’option, peut-être au prix de fonctionnalités réduites. Dans la même veine, une mise en œuvre qui n’inclut pas une option particulière DOIT être préparée à interopérer avec une autre mise en œuvre qui n’inclut pas l’option (excepté, bien sûr, pour la caractéristique fournie par l’option).</q></dd>	
+				</dl>
+			</section>
+		</section><!-- /#glossaire -->
+
+		<section id="bibliographie">
+			<h2>
+				Références
+				<a class="self-link" href="#bibliographie"></a>
+			</h2>
+			<ul class="bibliography">
+				<li class="hcite" id="bibid-HTMLDP">
+					<span class="identifier">[<a class="url" href="http://www.w3.org/TR/2007/WD-html-design-principles-20071126/">HTMLDP</a>]</span>
+					<span class="creator vcard"><span class="fn">van Kesteren, Anne</span> (éd.)</span>,
+					<span class="creator vcard"><span class="fn">Stachowiak, Maciej</span> (éd.)</span>.
+					(<time class="copyright date-published" datetime="2007-11-26">26 nov. 2007</time>).
+					<cite class="fn" lang="en">HTML Design Principles</cite>.
+					<span class="publisher vcard"><span class="fn org">W3C</span></span>.
+					<span class="format" lang="en">W3C working draft</span>.
+				</li>
+				<li class="hcite" id="bibid-RFC2119">
+					<span class="identifier">[<a class="url" href="https://www.ietf.org/rfc/rfc2119.txt">RFC2119</a>]</span>
+					<span class="creator vcard"><span class="fn">Bradner, Scott</span></span>.
+					(<time class="copyright date-published" datetime="1997-03">1997</time>).
+					<cite class="fn" lang="en">Key words for use in RFCs to Indicate Requirement Levels</cite>.
+					<span class="publisher vcard"><span class="fn org">IETF</span></span>.
+					RFC&nbsp;2119 / BCP&nbsp;14.
+				</li>
+				<li class="hcite" id="bibid-TechSEO">
+					<span class="identifier">[<a class="url" href="https://www.editions-eyrolles.com/Livre/9782212679861/techniques-de-referencement-web">TechSEO</a>]</span>
+					<span class="creator vcard"><span class="fn">Martin, Alexandra</span></span>,
+					<span class="creator vcard"><span class="fn">Chartier, Mathieu</span></span>.
+					(<time class="copyright date-published" datetime="2021-02-18">2021</time>).
+					<cite class="fn">Techniques de référencement web, Audit et suivi SEO</cite>.
+					<span class="publisher vcard"><span class="fn org">Eyrolles</span></span>.
+					4<sup>e</sup>&nbsp;édition.
+				</li>
+			</ul>
+		</section><!-- /#bibliographie -->
+
+		<section id="mentions-legales">
+			<h3>
+				Mentions légales
+				<a class="self-link" href="#mentions-legales"></a>
+			</h3>
+			<p>
+				<a class="bcw" href="./">Le beau code web</a> est distribué sous licence libre
+				<a href="LICENSE">GNU GPL, version&nbsp;3</a>.
+			</p>
+			<p>
+				<a class="bcw" href="./">Le beau code web</a> ne conserve pas de données personnelles,
+				ne dépose pas de <i lang="en">cookies</i>
+				et ne comporte pas de publicité ni de contenu sponsorisé,
+				mais son hébergeur peut y recours à l’un de ces moyens.
+			</p>
+			<p>
+				<a class="bcw" href="./">Le beau code web</a> est hébergé par
+				<i class="fab fa-github"></i> Github à partir du dépôt Git
+				<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i><code class="language-none">github.com/YannisDelmas/beau-code-web</code></a>.
+				Il s’agit d’une œuvre collective dont les contributeurs sont listés sur ce dépôt.
+				Le directeur de la publication est
+				<a href="https://github.com/YannisDelmas/">Yannis Delmas</a>.
+				Il peut être contacté via les coordonnées indiquées sur
+				<a href="https://delmas-rigoutsos.nom.fr/" title="Yannis Delmas">son site personnel</a>.
+			</p>
+			<p>
+				Le thème utilisé emploie comme image de fond
+				«&nbsp;<a href="http://subtlepatterns.com/?p=822">Rice Paper</a>&nbsp;»
+				de Alte Mo [<a href="http://subtlepatterns.com">Subtle patterns</a>].
+				Certains exemples peuvent utiliser des images publiées par le site
+				<a href="http://lorempixel.com/">LoremPixel.com</a>.
+			</p>
+		</section><!-- /#mentions-legales -->
+	</main>
+
+	<footer>
+		<p>
+			<a class="bcw" href="./">Le beau code web</a>
+			—
+			avec <i class="fas fa-heart" aria-valuetext="coeur" style="color: darkred;"></i> pour le web
+			—
+			<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Git</a>
+			—
+			<a href="principes.html#mentions-legales"><i class="fas fa-scale-balanced"></i> mentions légales</a>
+		</p>
+	</footer>
+	<script type="module" src="assets/js/glossary.js"></script>
+</body>
+</html>
