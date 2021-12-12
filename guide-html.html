@@ -9,54 +9,131 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.css" integrity="sha512-y56hHawsGNNkestAKyhMKxX25fF3QjUkrUESd4qYTPlKqz1s890GRkp95U7vj3tS1Qr/NCYE3bbYOq9MzAXI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="assets/css/mint-and-grapes.css">
 </head>
-<body>
+<body data-glossary="principes.html .glossary">
 	<header>
 		<h1>BCW-2 Recommandations pour le codage en HTML</h1>
 	</header>
 	<main>
 		<section>
 			<h3>
-				Validité
+				Validité du code
 			</h3>
 			<ol>
-				<li>L'encodage DOIT être précisé. RECOMMANDÉ: utf-8 (sans BOM).</li>
 				<li>
 					<p>
-						Le balisage DOIT être valide.
-						En particulier, les éléments DOIVENT être correctement imbriqués
-						et les caractères spéciaux DOIVENT toujours être correctement échappés par des entités, en particulier les <code class="language-none">&amp;</code> dans les URI.
+						L'encodage <abbr title="" class="rfc2119">doit</abbr> être précisé
+						[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-code-source-de-chaque-page-contient-une-metadonnee-qui-definit-le-jeu-de-caracteres">Opquast <cite>Règle 225</cite></a>].
+						<abbr title="" class="rfc2119">Recommandé</abbr>&nbsp;: <em>UTF-8</em>,
+						sans BOM
+						[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-codage-de-caracteres-utilise-est-utf-8">Opquast <cite>Règle 226</cite></a>].
 					</p>
-					<aside class="bonus"><p>
-						Les caractères invisibles (p.&nbsp;ex. <code class="language-html">&amp;nbsp;</code>) DEVRAIENT également l'être, mais pas les autres caractères (p.&nbsp;ex. € ou ⓒ).
-					</p></aside>
-					<p>Outils: navigateur, vérificateur de l'éditeur de code.</p>
-				</li>
-				<li>
-					<p>
-						Le code DEVRAIT être conforme à une version choisie du format choisi.Format RECOMMANDÉ: HTML5 en syntaxe HTML.
-					</p>
-					<p>Outils: valideur W3C</p>
-				</li>
-				<li>Les éléments DEVRAIENT toujours avoir une balise de fermeture, sauf éventuellement pour les éléments toujours vides (link, img, br).</li>
-				<li>
-					Les valeurs d'attribut DOIVENT toujours être entre guillemets (simple ou double), sauf peut-être pour les attributs booléens (p.ex. required, disabled, open).
 					<aside class="bonus">
 						<p>
-							Si le code a vocation à être lu informatiquement ou à être intégré à des pages XHTML (p.ex. un composant réutilisable), il est RECOMMANDÉ d'utiliser une écriture compatible avec le XML, Notamment:
+							À défaut d'UTF-8, l'encodage
+							<abbr title="" class="rfc2119">devrait</abbr> être,
+							au moins, en Unicode.
+						</p>
+						<p>
+							Outil de vérification&nbsp;:
+							<a href="https://validator.w3.org/i18n-checker/">W3C Internationalization Checker</a>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Le balisage <abbr title="" class="rfc2119">doit</abbr> être <em>valide</em>.
+						En particulier, les éléments <abbr title="" class="rfc2119">doivent</abbr> être correctement imbriqués
+						et les caractères spéciaux <abbr title="" class="rfc2119">doivent</abbr> toujours être correctement échappés par des entités, en particulier les <code class="language-html token attr-value">&amp;</code> dans les adresse.
+					</p>
+					<aside class="bonus">
+						<p>
+							Les caractères invisibles (p.&nbsp;ex. <code class="language-html">&amp;nbsp;</code>) <abbr title="" class="rfc2119">devraient</abbr> également l'être, mais pas les autres caractères (p.&nbsp;ex. € ou ⓒ).
+						</p>
+						<p>
+							Outils de vérification&nbsp;:
+							affichage de code des principaux navigateurs,
+							vérificateur syntaxique de l'éditeur de code,
+							<a href="https://validator.w3.org/">W3C Markup Validation Service</a>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Le code <abbr title="" class="rfc2119">devrait</abbr> être
+						<em>conforme</em> à une version choisie du format choisi.
+						Format <abbr title="" class="rfc2119">recommandé</abbr>:
+						HTML5 en syntaxe HTML.
+					</p>
+					<aside class="bonus">
+						<p>
+							En particulier, un identifant HTML 
+							(<code class="language-html token attr-name">id</code>)
+							n'est utilisé qu'une fois au plus par page
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-identifiant-html-nest-utilise-quune-seule-fois-par-page">Opquast <cite>Règle 229</cite></a>].
+						</p>
+						<p>
+							Outil de vérification&nbsp;:
+							<a href="https://validator.w3.org/">W3C Markup Validation Service</a>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Les éléments <abbr title="" class="rfc2119">devraient</abbr>
+						toujours avoir une balise de fermeture,
+						sauf éventuellement pour les éléments toujours vides
+						(<code class="language-html token tag">link</code>,
+						<code class="language-html token tag">img</code>,
+						<code class="language-html token tag">br</code>).
+					</p>
+				</li>
+				<li>
+					<p>
+						Les valeurs d'attribut <abbr title="" class="rfc2119">doivent</abbr> toujours être entre guillemets
+						(simple <code class="language-html token attr-value">'</code>
+						ou double <code class="language-html token attr-value">"</code>),
+						sauf peut-être pour les attributs booléens (p.&nbsp;ex.
+						<code class="language-html token attr-name">required</code>,
+						<code class="language-html token attr-name">disabled</code> ou
+						<code class="language-html token attr-name">open</code>).
+					</p>
+					<aside class="bonus">
+						<p>
+							Si le code à être intégré à des pages XHTML (p.ex. un composant réutilisable),
+							il est <abbr title="" class="rfc2119">recommandé</abbr>
+							d'utiliser une écriture compatible avec le XML, notamment&nbsp;:
 						</p>
 						<ul>
-							<li>Noms de balises et d'attributs en minuscules (le XML est sensibles à la casse). (attention toutefois…)</li>
+							<li>Noms de balises et d'attributs en minuscules (le XML est sensibles à la casse).</li>
 							<li>Les attributs, même booléens, ont toujours une valeur, vide si besoin.</li>
-							<li>Les commentaires ne contiennent pas la séquence --.</li>
+							<li>Les commentaires ne contiennent pas la séquence
+								<code class="language-html token comment">--</code>.</li>
 						</ul>
 						<p>
-							Note: Plutôt que la syntaxe XHTML, il est souvent plus commode d'intégrer les données dans un format directement utile (JSON-LD, RDFa…), d'autant que les règles précédentes sont souvent suffisantes pour assurer l'interprétation du document. La syntaxe XHTML N'EST PAS RECOMMANDÉ pour les concepteurs débutants.
+							La syntaxe XHTML est déconseillée aux concepteurs débutants.
 						</p>
 					</aside>
 				</li>
 			</ol>
-			<details class="rationale" open><summary>Justification</summary>
-				TODO respect des std ("Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and that ensures proper HTML usage."), sécurité (interprétation univoque).
+			<details class="rationale" open>
+				<summary>Justification</summary>
+				<ol>
+					<li>
+						<p>TODO</p>
+					</li>
+					<li>
+						<p>TODO</p>
+					</li>
+					<li>
+						<p>TODO</p>
+					</li>
+					<li>
+						<p>TODO</p>
+					</li>
+					<li>
+						<p>TODO</p>
+					</li>
+				</ol>
 			</details>
 		</section>
 		<nav>
@@ -77,6 +154,7 @@
 			<a href="principes.html#mentions-legales"><i class="fas fa-scale-balanced"></i> mentions légales</a>
 		</p>
 	</footer>
+	<script type="module" src="assets/js/glossary.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.js" integrity="sha512-PVMnmOnCm6A2IHP8RMGclS5lEYaJyzpYkov5bfQs7MHYibBbh0JqE1/D3XQ9AkQCBzcsVmntztTnI7VOwOulXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/keep-markup/prism-keep-markup.min.js" integrity="sha512-sk5ho9bSGJw3N1ZPkk5KZJeiCj6oVRoK59/Bbo50jA6AJdzXR705fE1A1urV5+qwRWDJ+nEt5TALKvRFj+PLGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
