@@ -87,10 +87,8 @@
 						<code class="language-html token tag">img</code>,
 						<code class="language-html token tag">br</code>).
 					</p>
-				</li>
-				<li>
 					<p>
-						Les valeurs d'attribut <abbr title="" class="rfc2119">doivent</abbr> toujours être entre guillemets
+						De même, les valeurs d’attribut <abbr title="" class="rfc2119">doivent</abbr> toujours être entre guillemets
 						(simple <code class="language-html token attr-value">'</code>
 						ou double <code class="language-html token attr-value">"</code>),
 						sauf peut-être pour les attributs booléens (p.&nbsp;ex.
@@ -177,10 +175,14 @@
 					<li>
 						<p>
 							En syntaxe XHTML (XML), tout élément, même vide doit être fermé.
-							En syntaxe HTML, cela n’est pas imposé, mais cela est utile pour
+							En syntaxe HTML, cela n’est pas imposé, mais il est utile pour
 							la <a class="principle" href="principes.html#ppe-lisible">lisibilité</a> et
 							la compréhension de certains codes, donc pour leur
-							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>.
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>,
+							de toujours indiquer les balises de fin facultatives (p.&nbsp;ex.
+							<code class="language-html token attr-value">&lt;/p></code>),
+							sauf peut-être pour les balises toujours vides,
+							pour lesquelles il n’y a aucune ambiguïté.
 						</p>
 					</li>
 					<li>
@@ -200,11 +202,9 @@
 							<a class="principle" href="principes.html#ppe-coherence">cohérence</a>
 							et de
 							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>,
-							il est préférable de toujours indiquer les balises de
-							fin facultatives (p.&nbsp;ex.
-							<code class="language-html token attr-value">&lt;/p></code>),
-							sauf peut-être pour les balises toujours vides,
-							pour lesquelles il n’y a aucune ambiguïté.
+							il est préférable d’expliciter les fin d’élément ou d’attribut.
+							Cela réduit également les risques d’erreur de lecture ou d’oubli
+							d’une fermeture.
 						</p>
 					</li>
 				</ol>
