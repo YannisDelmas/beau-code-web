@@ -15,9 +15,10 @@
 	</header>
 	<main>
 		<section>
-			<h3>
+			<h2>
 				Validité du code
-			</h3>
+				<a class="self-link" href="#validite"></a>
+			</h2>
 			<ol>
 				<li>
 					<p>
@@ -43,7 +44,7 @@
 					<p>
 						Le balisage <abbr title="" class="rfc2119">doit</abbr> être <em>valide</em>.
 						En particulier, les éléments <abbr title="" class="rfc2119">doivent</abbr> être correctement imbriqués
-						et les caractères spéciaux <abbr title="" class="rfc2119">doivent</abbr> toujours être correctement échappés par des entités, en particulier les <code class="language-html token attr-value">&amp;</code> dans les adresse.
+						et les caractères spéciaux <abbr title="" class="rfc2119">doivent</abbr> toujours être correctement échappés par des entités, en particulier les <code class="language-html token attr-value">&amp;</code> dans les adresses.
 					</p>
 					<aside class="bonus">
 						<p>
@@ -99,12 +100,13 @@
 					</p>
 					<aside class="bonus">
 						<p>
-							Si le code à être intégré à des pages XHTML (p.ex. un composant réutilisable),
-							il est <abbr title="" class="rfc2119">recommandé</abbr>
-							d'utiliser une écriture compatible avec le XML, notamment&nbsp;:
+							Si le code peut être intégré à des pages utilisant la syntaxe XHTML
+							(p.ex. un composant réutilisable),
+							il est <abbr title="" class="rfc2119">obligatoire</abbr>
+							d’utiliser une écriture compatible avec le XML, notamment&nbsp;:
 						</p>
 						<ul>
-							<li>Noms de balises et d'attributs en minuscules (le XML est sensibles à la casse).</li>
+							<li>Noms de balises et d’attributs en minuscules (le XML est sensibles à la casse).</li>
 							<li>Les attributs, même booléens, ont toujours une valeur, vide si besoin.</li>
 							<li>Les commentaires ne contiennent pas la séquence
 								<code class="language-html token comment">--</code>.</li>
@@ -115,31 +117,104 @@
 					</aside>
 				</li>
 			</ol>
-			<details class="rationale" open>
+			<details class="rationale">
 				<summary>Justification</summary>
 				<ol>
 					<li>
-						<p>TODO</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-service">Service</a>,
+							<a class="principle" href="principes.html#ppe-securite">sécurité</a>&nbsp;:
+							Les éditeurs de code devinent souvent l’encodage d’une page.
+							En revanche, les navigateurs utilisent un encodage par défaut,
+							quand celui-ci n’est pas spécifié.
+							Pour obtenir un affichage correct, en particulier quand des données
+							doivent être échangées, il est donc nécessaire d’expliciter
+							l’encodage
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-code-source-de-chaque-page-contient-une-metadonnee-qui-definit-le-jeu-de-caracteres">Opquast <cite>Règle 225</cite></a>].
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>,
+							<a class="principle" href="principes.html#ppe-coherence">cohérence</a>&nbsp;:
+							Les documents XML imposent un encodage Unicode.
+							Ceci permet une communication dans toutes les langues et sur toutes
+							les plateformes, Unicode décrivant de façon universelle tous les
+							glyphes en usage.
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-performance">Performance</a>&nbsp;:
+							L’encodage le plus souvent le plus économe en quantité d’information
+							est UTF-8.
+							<a class="principle" href="principes.html#ppe-securite">Sécurité</a>&nbsp;:
+							De plus, UTF-8 permet de ne pas utiliser de BOM, qui sont parfois
+							mal pris en charge ou mal signalés par certains logiciels auteur.
+						</p>
 					</li>
 					<li>
-						<p>TODO</p>
+						<p>
+							La validité est un simple <a class="principle" href="principes.html#ppe-standard">respect des standards</a>.
+							De plus, il s’agit de la dimension la plus immédiatement visible de
+							la qualité d’un code et cela est également utile pédagogiquement.
+						</p>
+						<p>
+							Pour des raisons de <a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a> et de
+							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>,
+							il est important de coder par des entités les caractères
+							invisibles (mais pas les caractères affichables).
+						</p>
 					</li>
 					<li>
-						<p>TODO</p>
+						<p>
+							Ne pas confondre validité du balisage et conformité du document&nbsp;:
+							les différentes version du format HTML imposent un certain nombre de
+							contraintes supplémentaires,
+							en particulier l’unicité de l’<code class="language-html token attr-name">id</code>.
+						</p>
+						<p>
+							La conformité des documents HTML est, là aussi,
+							un simple <a class="principle" href="principes.html#ppe-standard">respect des standards</a>.
+						</p>
 					</li>
 					<li>
-						<p>TODO</p>
+						<p>
+							En syntaxe XHTML (XML), tout élément, même vide doit être fermé.
+							En syntaxe HTML, cela n’est pas imposé, mais cela est utile pour
+							la <a class="principle" href="principes.html#ppe-lisible">lisibilité</a> et
+							la compréhension de certains codes, donc pour leur
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>.
+						</p>
 					</li>
 					<li>
-						<p>TODO</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>,
+							<a class="principle" href="principes.html#ppe-securite">sécurité</a>&nbsp;:
+							Si ce code doit être utilisé dans du XML,
+							par exemple dans un document HTML utilisant la syntaxe XHTML,
+							il est impératif de scrupuleusement respecter celle-ci.
+							En effet, la moindre erreur fait basculer les lecteurs en syntaxe
+							HTML, dont la sémantique est différentes pour certains éléments.
+						</p>
+						<p>
+							Si le code n’a pas vocation à être utilisé en syntaxe XHTML,
+							une forme plus relâchée est possible.
+							Toutefois, pour des raisons de
+							<a class="principle" href="principes.html#ppe-coherence">cohérence</a>
+							et de
+							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>,
+							il est préférable de toujours indiquer les balises de
+							fin facultatives (p.&nbsp;ex.
+							<code class="language-html token attr-value">&lt;/p></code>),
+							sauf peut-être pour les balises toujours vides,
+							pour lesquelles il n’y a aucune ambiguïté.
+						</p>
 					</li>
 				</ol>
 			</details>
 		</section>
 		<nav>
+			<h2>Autres recommandations</h2>
 			<p>
-				Pour d’autres projets de recommandation,
-				n’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
+				D’autres recommandations sont en projet.
+				N’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
 			</p>
 		</nav>
 	</main>
