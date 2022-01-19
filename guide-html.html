@@ -22,7 +22,7 @@
 			<ol>
 				<li>
 					<p>
-						L'encodage <abbr title="" class="rfc2119">doit</abbr> être précisé
+						L’encodage <abbr title="" class="rfc2119">doit</abbr> être précisé
 						[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-code-source-de-chaque-page-contient-une-metadonnee-qui-definit-le-jeu-de-caracteres">Opquast <cite>Règle 225</cite></a>].
 						<abbr title="" class="rfc2119">Recommandé</abbr>&nbsp;: <em>UTF-8</em>,
 						sans BOM
@@ -30,7 +30,7 @@
 					</p>
 					<aside class="bonus">
 						<p>
-							À défaut d'UTF-8, l'encodage
+							À défaut d’UTF-8, l’encodage
 							<abbr title="" class="rfc2119">devrait</abbr> être,
 							au moins, en Unicode.
 						</p>
@@ -48,33 +48,37 @@
 					</p>
 					<aside class="bonus">
 						<p>
-							Les caractères invisibles (p.&nbsp;ex. <code class="language-html">&amp;nbsp;</code>) <abbr title="" class="rfc2119">devraient</abbr> également l'être, mais pas les autres caractères (p.&nbsp;ex. € ou ⓒ).
+							Les caractères invisibles (p.&nbsp;ex. <code class="language-html">&amp;nbsp;</code>) <abbr title="" class="rfc2119">devraient</abbr> également l’être, mais pas les autres caractères (p.&nbsp;ex. € ou ⓒ).
 						</p>
 						<p>
 							Outils de vérification&nbsp;:
 							affichage de code des principaux navigateurs,
-							vérificateur syntaxique de l'éditeur de code,
+							vérificateur syntaxique de l’éditeur de code,
 							<a href="https://validator.w3.org/">W3C Markup Validation Service</a>.
 						</p>
 					</aside>
 				</li>
 				<li>
 					<p>
-						Le code <abbr title="" class="rfc2119">devrait</abbr> être
-						<em>conforme</em> à une version choisie du format choisi.
-						Format <abbr title="" class="rfc2119">recommandé</abbr>:
+						Le document <abbr title="" class="rfc2119">devrait</abbr> être
+						<em>conforme</em> à une version donnée du format choisi.
+						Format <abbr title="" class="rfc2119">recommandé</abbr>&nbsp;:
 						HTML5 en syntaxe HTML.
 					</p>
 					<aside class="bonus">
 						<p>
 							En particulier, un identifant HTML 
 							(<code class="language-html token attr-name">id</code>)
-							n'est utilisé qu'une fois au plus par page
+							n’est utilisé qu’une fois au plus par page
 							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-identifiant-html-nest-utilise-quune-seule-fois-par-page">Opquast <cite>Règle 229</cite></a>].
 						</p>
 						<p>
 							Outil de vérification&nbsp;:
 							<a href="https://validator.w3.org/">W3C Markup Validation Service</a>.
+						</p>
+						<p>
+							En général, il convient de privilégier la version officielle la plus récente
+							du format choisi.
 						</p>
 					</aside>
 				</li>
@@ -89,8 +93,8 @@
 					</p>
 					<p>
 						De même, les valeurs d’attribut <abbr title="" class="rfc2119">devraient</abbr> toujours être entre guillemets
-						(simple <code class="language-html token attr-value">'</code>
-						ou double <code class="language-html token attr-value">"</code>),
+						(simples <code class="language-html token attr-value">'</code>
+						ou doubles <code class="language-html token attr-value">"</code>),
 						sauf peut-être pour les attributs booléens (p.&nbsp;ex.
 						<code class="language-html token attr-name">required</code>,
 						<code class="language-html token attr-name">disabled</code> ou
@@ -98,7 +102,7 @@
 					</p>
 					<aside class="bonus">
 						<p>
-							Si le code peut être intégré à des pages utilisant la syntaxe XHTML
+							Si le code doit pouvoir être intégré à des pages utilisant la syntaxe XHTML
 							(p.ex. un composant réutilisable),
 							il est <abbr title="" class="rfc2119">obligatoire</abbr>
 							d’utiliser une écriture compatible avec le XML, notamment&nbsp;:
@@ -143,8 +147,8 @@
 							L’encodage le plus souvent le plus économe en quantité d’information
 							est UTF-8.
 							<a class="principle" href="principes.html#ppe-securite">Sécurité</a>&nbsp;:
-							De plus, UTF-8 permet de ne pas utiliser de BOM, qui sont parfois
-							mal pris en charge ou mal signalés par certains logiciels auteur.
+							De plus, UTF-8 permet de ne pas utiliser de BOM, lequel est parfois
+							mal pris en charge ou mal signalé par certains logiciels auteur.
 						</p>
 					</li>
 					<li>
