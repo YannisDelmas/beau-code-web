@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				// Recherche des termes définis
 				let i = definitionElement;
 				while ( (( i = i.previousElementSibling )) && (i.tagName.toLowerCase() == 'dt') ) {
-					glossary[ i.textContent.trim() ] = definition;
+					glossary[ i.textContent.trim().toLowerCase() ] = definition;
 					// Variantes orthographiques
 					if ( i.dataset.glossaryVariants !== undefined ) {
 						i.dataset.glossaryVariants.split(/\s/).forEach(function(alias){
-							glossary[ alias ] = definition;
+							glossary[ alias.toLowerCase() ] = definition;
 						});
 					}
 				}
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			
 			// Dans le champ appelant ce glossaire, on parcourt les abréviations cibles
 			scope.querySelectorAll('abbr[title=""]').forEach(function(abbr){
-				abbr.title = glossary[ abbr.textContent.trim() ];
+				abbr.title = glossary[ abbr.textContent.trim().toLowerCase() ];
 			});
 		});
 		xhr.send();
