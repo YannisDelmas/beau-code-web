@@ -1,11 +1,12 @@
 # première cible = cible par défaut : «guide-html.html»
-all: doc/guide-html.html
+all: docs/guide-html.html docs/guide-php.html
 
 # dépendances supplémentaires (en plus de la cible générique ci-dessous)
-doc/guide-html.html: guide-html-*.twig
+docs/guide-html.html: guide-html-*.twig
+#docs/guide-php.html:  guide-php-*.twig
 
 # cible générique : xxx.html est fait à partir de xxx.twig
-doc/%.html: %.twig
+docs/%.html: %.twig
 	$(info cible: $@)
 	$(info dependances: $+)
 	$(info dependances plus recentes que la cible: $?)
