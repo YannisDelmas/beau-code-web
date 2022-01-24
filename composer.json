@@ -1,0 +1,10 @@
+{
+    "name": "yannisdelmas/beau-code-web",
+    "type": "project",
+    "description": "Le Beau code web",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "php": "^7.1",
+        "twig/twig": "^3.0"
+    }
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+		<!-- Ne pas modifier ce fichier, qui est produit automatiquement à partir des documents: guide-html.twig guide-html-010-validite.twig. -->
+					<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BCW-2 Recommandations pour le codage en HTML — Le beau code web</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="assets/css/mint-and-grapes.css">
+	</head>
+<body data-glossary="principes.html .glossary">
+	<header>
+		<h1>BCW-2 Recommandations pour le codage en HTML</h1>
+	</header>
+	<main>
+									<section id="validite">
+	<h2>
+				Validité du code
+			<a class="self-link" href="#validite"></a>
+	</h2>
+				<ol>
+				<li>
+					<p>
+						L’encodage <abbr title="" class="rfc2119">doit</abbr> être précisé
+						[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-code-source-de-chaque-page-contient-une-metadonnee-qui-definit-le-jeu-de-caracteres">Opquast <cite>Règle 225</cite></a>].
+						<abbr title="" class="rfc2119">Recommandé</abbr>&nbsp;: <em>UTF-8</em>,
+						sans BOM
+						[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-codage-de-caracteres-utilise-est-utf-8">Opquast <cite>Règle 226</cite></a>].
+					</p>
+					<aside class="bonus">
+						<p>
+							À défaut d’UTF-8, l’encodage
+							<abbr title="" class="rfc2119">devrait</abbr> être,
+							au moins, en Unicode.
+						</p>
+						<p>
+							Outil de vérification&nbsp;:
+							<a href="https://validator.w3.org/i18n-checker/">W3C Internationalization Checker</a>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Le balisage <abbr title="" class="rfc2119">doit</abbr> être <em>valide</em>.
+						En particulier, les éléments <abbr title="" class="rfc2119">doivent</abbr> être correctement imbriqués
+						et les caractères spéciaux <abbr title="" class="rfc2119">doivent</abbr> toujours être correctement échappés par des entités, en particulier les <code class="language-html token attr-value">&amp;</code> dans les adresses.
+					</p>
+					<aside class="bonus">
+						<p>
+							Les caractères invisibles (p.&nbsp;ex. <code class="language-html">&amp;nbsp;</code>) <abbr title="" class="rfc2119">devraient</abbr> également l’être, mais pas les autres caractères (p.&nbsp;ex. € ou ⓒ).
+						</p>
+						<p>
+							Outils de vérification&nbsp;:
+							affichage de code des principaux navigateurs,
+							vérificateur syntaxique de l’éditeur de code,
+							<a href="https://validator.w3.org/">W3C Markup Validation Service</a>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Le document <abbr title="" class="rfc2119">devrait</abbr> être
+						<em>conforme</em> à une version donnée du format choisi.
+						Format <abbr title="" class="rfc2119">recommandé</abbr>&nbsp;:
+						HTML5 en syntaxe HTML.
+					</p>
+					<aside class="bonus">
+						<p>
+							En particulier, un identifant HTML 
+							(<code class="language-html token attr-name">id</code>)
+							n’est utilisé qu’une fois au plus par page
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-identifiant-html-nest-utilise-quune-seule-fois-par-page">Opquast <cite>Règle 229</cite></a>].
+						</p>
+						<p>
+							Outil de vérification&nbsp;:
+							<a href="https://validator.w3.org/">W3C Markup Validation Service</a>.
+						</p>
+						<p>
+							En général, il convient de privilégier la version officielle la plus récente
+							du format choisi.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Les éléments <abbr title="" class="rfc2119">devraient</abbr>
+						toujours avoir une balise de fermeture,
+						sauf éventuellement pour les éléments toujours vides
+						(<code class="language-html token tag">link</code>,
+						<code class="language-html token tag">img</code>,
+						<code class="language-html token tag">br</code>).
+					</p>
+					<p>
+						De même, les valeurs d’attribut <abbr title="" class="rfc2119">devraient</abbr> toujours être entre guillemets
+						(simples <code class="language-html token attr-value">'</code>
+						ou doubles <code class="language-html token attr-value">"</code>),
+						sauf peut-être pour les attributs booléens (p.&nbsp;ex.
+						<code class="language-html token attr-name">required</code>,
+						<code class="language-html token attr-name">disabled</code> ou
+						<code class="language-html token attr-name">open</code>).
+					</p>
+					<aside class="bonus">
+						<p>
+							Si le code doit pouvoir être intégré à des pages utilisant la syntaxe XHTML
+							(p.ex. un composant réutilisable),
+							il est <abbr title="" class="rfc2119">obligatoire</abbr>
+							d’utiliser une écriture compatible avec le XML, notamment&nbsp;:
+						</p>
+						<ul>
+							<li>Noms de balises et d’attributs en minuscules (le XML est sensibles à la casse).</li>
+							<li>Les attributs, même booléens, ont toujours une valeur entre guillemets, vide si besoin.</li>
+							<li>Les commentaires ne contiennent pas la séquence
+								<code class="language-html token comment">--</code>.</li>
+						</ul>
+						<p>
+							La syntaxe XHTML est déconseillée aux concepteurs débutants.
+						</p>
+					</aside>
+				</li>
+			</ol>
+		<details class="rationale">
+		<summary>Justification</summary>
+						<ol>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-service">Service</a>,
+							<a class="principle" href="principes.html#ppe-securite">sécurité</a>&nbsp;:
+							Les éditeurs de code devinent souvent l’encodage d’une page.
+							En revanche, les navigateurs utilisent un encodage par défaut,
+							quand celui-ci n’est pas spécifié.
+							Pour obtenir un affichage correct, en particulier quand des données
+							doivent être échangées, il est donc nécessaire d’expliciter
+							l’encodage
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/le-code-source-de-chaque-page-contient-une-metadonnee-qui-definit-le-jeu-de-caracteres">Opquast <cite>Règle 225</cite></a>].
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>,
+							<a class="principle" href="principes.html#ppe-coherence">cohérence</a>&nbsp;:
+							Les documents XML imposent un encodage Unicode.
+							Ceci permet une communication dans toutes les langues et sur toutes
+							les plateformes, Unicode décrivant de façon universelle tous les
+							glyphes en usage.
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-performance">Performance</a>&nbsp;:
+							L’encodage le plus souvent le plus économe en quantité d’information
+							est UTF-8.
+							<a class="principle" href="principes.html#ppe-securite">Sécurité</a>&nbsp;:
+							De plus, UTF-8 permet de ne pas utiliser de BOM, lequel est parfois
+							mal pris en charge ou mal signalé par certains logiciels auteur.
+						</p>
+					</li>
+					<li>
+						<p>
+							La validité est un simple <a class="principle" href="principes.html#ppe-standard">respect des standards</a>.
+							De plus, il s’agit de la dimension la plus immédiatement visible de
+							la qualité d’un code et cela est également utile pédagogiquement.
+						</p>
+						<p>
+							Pour des raisons de <a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a> et de
+							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>,
+							il est important de coder par des entités les caractères
+							invisibles (mais pas les caractères affichables).
+						</p>
+					</li>
+					<li>
+						<p>
+							Ne pas confondre validité du balisage et conformité du document&nbsp;:
+							les différentes version du format HTML imposent un certain nombre de
+							contraintes supplémentaires,
+							en particulier l’unicité de l’<code class="language-html token attr-name">id</code>.
+						</p>
+						<p>
+							La conformité des documents HTML est, là aussi,
+							un simple <a class="principle" href="principes.html#ppe-standard">respect des standards</a>.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>,
+							<a class="principle" href="principes.html#ppe-securite">sécurité</a>&nbsp;:
+							Si ce code doit être utilisé dans du XML,
+							par exemple dans un document HTML utilisant la syntaxe XHTML,
+							il est impératif de scrupuleusement respecter celle-ci.
+							En effet, la moindre erreur fait basculer les lecteurs en syntaxe
+							HTML, dont la sémantique est différentes pour certains éléments.
+						</p>
+						<p>
+							En syntaxe XHTML (XML), tout élément, même vide doit être fermé.
+							En syntaxe HTML, cela n’est pas imposé, mais il est utile pour
+							la <a class="principle" href="principes.html#ppe-lisible">lisibilité</a> et
+							la compréhension de certains codes, donc pour leur
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>,
+							de toujours indiquer les balises de fin facultatives (p.&nbsp;ex.
+							<code class="language-html token attr-value">&lt;/p></code>),
+							sauf peut-être pour les balises toujours vides,
+							pour lesquelles il n’y a aucune ambiguïté.
+						</p>
+						<p>
+							Le même raisonnement s’applique aux attributs.
+							Cela réduit également les risques d’erreur de lecture ou d’oubli
+							d’une fermeture.
+						</p>
+					</li>
+				</ol>
+		</details>
+</section>								</main>
+	<footer>
+		<p>
+			<a class="bcw" href="./">Le beau code web</a>
+			—
+			avec <i class="fas fa-heart" aria-valuetext="coeur" style="color: darkred;"></i> pour le web
+			—
+			<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Git</a>
+			—
+			<a href="principes.html#mentions-legales"><i class="fas fa-scale-balanced"></i> mentions légales</a>
+		</p>
+	</footer>
+	<script type="module" src="assets/js/glossary.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/keep-markup/prism-keep-markup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
