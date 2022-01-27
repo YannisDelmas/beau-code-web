@@ -14,10 +14,133 @@
 		<h1>BCW-3 Recommandations le codage des feuilles de style</h1>
 	</header>
 	<main>
-		<p>
-			Il n’y a pas de recommandation pour l’instant.
-			N’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
-		</p>
+		<section>
+			<h2 class="sr-only">Introduction</h2>
+			<p>
+				Les feuilles de style CSS sont principalement constituées de <em>règles de style</em>.
+				Chaque règle comporte un <em>sélecteur</em> ou une <em>liste de sélecteurs</em>
+				<mark class="label" title="1">1</mark>,
+				suivi d’une liste de <em>déclarations</em> (p.ex. <mark class="label" title="2">2</mark>).
+				Chaque déclaration est constituée d’une <em>propriété</em> <mark class="label" title="3">3</mark>
+				suivie d’une <em>valeur</em> <mark class="label" title="4">4</mark>,
+				laquelle peut avoir plusieurs <em>composantes</em> <mark class="label" title="5">5</mark>.
+				Certaines propriétés peuvent admettre des déclarations comportant une
+				<em>liste de valeurs</em> <mark class="label" title="6">6</mark>.
+			</p>
+			<pre><code class="language-css"><mark title="1">h1,
+h2</mark> {
+	<mark title="2">margin: 0 auto;</mark>
+	<mark title="3">color</mark>: <mark title="4">green</mark>;
+	border: <mark title="5">1px</mark> <mark title="5">solid</mark> <mark title="5">black</mark>;
+	font-family: <mark title="6">Arial, Helvetica, sans-serif</mark>;
+}</code></pre>
+			<aside class="bonus">
+				<p>
+					On peut s’aider d’un
+					<a href="https://delmas-rigoutsos.nom.fr/outils/explain-expression/">explicateur de sélecteur CSS</a>
+					pour comprendre des sélecteurs CSS complexes.
+				</p>
+				<p>
+					L’application
+					<a href="https://caniuse.com/"><cite>Can I use…</cite></a>
+					permet de connaître la disponibilité sur les navigateurs de chaque
+					fonctionnalité.
+				</p>
+			</aside>
+		</section>
+		<section id="rec-forme">
+			<h2>
+				Mise en forme des règles
+				<a class="self-link" href="#rec-forme"></a>
+			</h2>
+			<ol>
+				<li>
+					Dans une liste de sélecteurs, il est <abbr title="" class="rfc2119">recommandé</abbr>
+					de ne mettre qu’un sélecteur par ligne.
+				</li>
+				<li>
+					De même, il est <abbr title="" class="rfc2119">recommandé</abbr>
+					de ne mettre qu’une déclaration par ligne.
+				</li>
+				<li>
+					Chaque déclaration <abbr title="" class="rfc2119">doit</abbr> se terminer par un point-virgule <code class="language-none">;</code>, même quand celui-ci est facultatif.
+				</li>
+				<li>
+					Les espacements <abbr title="" class="rfc2119">doivent</abbr> être utilisés de façon cohérente sur l’ensemble d’un site.
+				</li>
+				<li>
+					Il est <abbr title="" class="rfc2119">recommandé</abbr> de ne pas mettre d’espace
+					entre une propriété et le séparateur <code class="language-none">:</code>,
+					mais d’en mettre un systématiquement après ce séparateur.
+					De même, il est <abbr title="" class="rfc2119">recommandé</abbr>
+					de mettre un espace après chaque virgule <code class="language-none">,</code>
+					dans une liste de valeurs, mais pas devant.
+					Il est également <abbr title="" class="rfc2119">recommandé</abbr> de faire précéder
+					les accolades ouvrantes <code class="language-none">{</code> d’un espace.
+				</li>
+			</ol>
+			<aside class="bonus">
+				<p>
+					En résumé&nbsp;:
+					un <span id="forme-sel-legende">sélecteur</span> /
+					<span id="forme-decl-legende">déclaration</span> par ligne,
+					<span id="forme-term-legende">point-virgule obligatoire</span>,
+					<span id="forme-sp-legende">un espace ici</span>,
+					mais <span id="forme-nosp-legende">aucun là</span>.
+				</p>
+				<pre><code class="language-css"><span id="forme-sel-ex1">h1</span>,
+<span id="forme-sel-ex2">h2</span><span id="forme-sp-ex1"> {</span>
+	<span id="forme-decl-ex1">margin<span id="forme-sp-ex2">: </span>0 auto;</span>
+	<span id="forme-decl-ex2">color: green;</span>
+	<span id="forme-decl-ex3">font-famil<span id="forme-nosp-ex1">y:</span> Arial<span id="forme-sp-ex3">, </span>Helvetic<span id="forme-nosp-ex2">a,</span> sans-serif<span id="forme-term-ex">;</span></span>
+}</code></pre>
+		</aside>
+			<details class="rationale"><summary>Justification</summary>
+				<ol>
+					<li value="3">
+						La même logique préside aux trois premiers points&nbsp;:
+						un changement doit pouvoir être localisé sur une ou plusieurs lignes,
+						mais pas au sein d’une ligne.
+						La principale raison est la <a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>.
+						Ceci permet aux systèmes de versionnement, Git ou autre, de suivre
+						individuellement chaque modification, limitant ainsi les risques
+						de conflits au moment des fusions <code class="language-git">merge</code>.
+						Accessoirement, cela permet aussi de faire des tests en commentant plus
+						aisément tel ou telle déclaration.
+						En effet, à titre de contre-exemple, si l’on plaçait des déclarations de
+						<span class="language-css token property">position</span>,
+						<span class="language-css token property">top</span>,
+						<span class="language-css token property">left</span> et
+						<span class="language-css token property">right</span>
+						sur une même ligne, il ne serait pas facile d’agir sur la seule déclaration
+						de <span class="language-css token property">top</span>.	
+					</li>
+					<li>
+						La raison la plus souvent invoquée pour la règle précédente,
+						«&nbsp;un changement par ligne&nbsp;», est la
+						<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>,
+						mais il semble que celle-ci dépende surtout des habitudes de chaque codeur.
+						C’est donc la principale raison du point n°4.
+					</li>
+					<li>
+						Le point n°5 est également motivé par des raisons
+						de <a class="principle" href="principes.html#ppe-lisible">lisibilité</a>.
+						Les espaces recommandés permettent une séparation visuelle suffisante.
+						L’absence d’espace devant les séparateurs permet de respecter la
+						typographie de l’anglais, langue de référence du CSS, et donc d’assurer
+						une meilleure
+						<a class="principle" href="principes.html#ppe-coherence">cohérence</a>
+						à un niveau international.
+					</li>
+				</ul>
+			</details>
+		</section>
+		<nav>
+			<p>
+				Pour d’autres projets de recommandation,
+				n’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
+			</p>
+		</nav>
 	</main>
 	<footer>
 		<p>
@@ -34,5 +157,74 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.js" integrity="sha512-PVMnmOnCm6A2IHP8RMGclS5lEYaJyzpYkov5bfQs7MHYibBbh0JqE1/D3XQ9AkQCBzcsVmntztTnI7VOwOulXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/keep-markup/prism-keep-markup.min.js" integrity="sha512-sk5ho9bSGJw3N1ZPkk5KZJeiCj6oVRoK59/Bbo50jA6AJdzXR705fE1A1urV5+qwRWDJ+nEt5TALKvRFj+PLGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="assets/js/leader-line.min.js"></script>
+	<script>
+		window.addEventListener('load', function() {
+			let opt = {path: 'straight', size: 1.75, color: '#003399', startSocket: 'bottom', endSocket: 'top', dropShadow: {dx:1,dy:1,blur:1}};
+			new LeaderLine(
+				document.getElementById('forme-sel-legende'),
+				document.getElementById('forme-sel-ex1'),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-sel-legende'),
+				document.getElementById('forme-sel-ex2'),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-decl-legende'),
+				LeaderLine.pointAnchor(document.getElementById('forme-decl-ex1'), {x: '70%', y: 0}),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-decl-legende'),
+				LeaderLine.pointAnchor(document.getElementById('forme-decl-ex2'), {x: '90%', y: 0}),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-decl-legende'),
+				document.getElementById('forme-decl-ex3'),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-term-legende'),
+				LeaderLine.areaAnchor(document.getElementById('forme-term-ex'), 'rect'),
+				opt
+			);
+			opt.path = 'fluid';
+			opt.color = '#339900';
+			opt.endSocket = 'right';
+			opt.startSocketGravity = [-100, +50];
+			new LeaderLine(
+				document.getElementById('forme-sp-legende'),
+				LeaderLine.areaAnchor(document.getElementById('forme-sp-ex1'), 'rect'),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-sp-legende'),
+				LeaderLine.areaAnchor(document.getElementById('forme-sp-ex2'), 'rect'),
+				opt
+			);
+			new LeaderLine(
+				document.getElementById('forme-sp-legende'),
+				LeaderLine.areaAnchor(document.getElementById('forme-sp-ex3'), 'rect'),
+				opt
+			);
+			opt.color = '#990033';
+			opt.startSocketGravity = 'auto';
+			opt.endSocketGravity = [200, 100];
+			new LeaderLine(
+				document.getElementById('forme-nosp-legende'),
+				LeaderLine.areaAnchor(document.getElementById('forme-nosp-ex1'), 'rect'),
+				opt
+			);
+			opt.endSocketGravity = [100, 50];
+			new LeaderLine(
+				document.getElementById('forme-nosp-legende'),
+				LeaderLine.areaAnchor(document.getElementById('forme-nosp-ex2'), 'rect'),
+				opt
+			);
+		});
+	</script>
 </body>
 </html>
