@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Principes — Le beau code web</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="assets/css/mint-and-grapes.css">
-</head>
-<body data-glossary="principes.html .glossary">
-	<header>
-		<h1>BCW-0 Principes du «&nbsp;Beau code web&nbsp;»</h1>
-	</header>
-	<main>
-
+{% extends '_page.twig' %}
+{% block pageTitle %}Principes — Le beau code web{% endblock %}
+{% block docTitle %}BCW-0 Principes du «&nbsp;Beau code web&nbsp;»{% endblock %}
+{% block docContent %}
 		<section id="public">
 			<h2>
 				À qui s’adresse ce guide
@@ -284,19 +272,4 @@
 				<a href="http://lorempixel.com/">LoremPixel.com</a>.
 			</p>
 		</section><!-- /#mentions-legales -->
-	</main>
-
-	<footer>
-		<p>
-			<a class="bcw" href="./">Le beau code web</a>
-			—
-			avec <i class="fas fa-heart" aria-valuetext="coeur" style="color: darkred;"></i> pour le web
-			—
-			<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Git</a>
-			—
-			<a href="principes.html#mentions-legales"><i class="fas fa-scale-balanced"></i> mentions légales</a>
-		</p>
-	</footer>
-	<script type="module" src="assets/js/glossary.js"></script>
-</body>
-</html>
+{% endblock %}
