@@ -20,6 +20,6 @@ La commande `npm install` permet d’installer et mettre à jour les éléments 
 
 - [Grunt](https://gruntjs.com/) pour la gestion et la mise en œuvre des mises à jour.
 - Plugin [grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy) de Grunt pour la copie en l’état de fichiers.
-- Plugin [grunt-twig-render](https://www.npmjs.com/package/grunt-twig-render) de Grunt, utilisant la bibliothèque [Twig.js](https://github.com/twigjs/twig.js), pour le rendu des modèles TWIG.
+- Plugin [grunt-twig-render](https://www.npmjs.com/package/grunt-twig-render) de Grunt, utilisant la bibliothèque [Twig.js](https://github.com/twigjs/twig.js), pour le rendu des modèles TWIG ([Wiki](https://github.com/twigjs/twig.js/wiki)).
 
 Pour fabriquer les fichiers publiables, entrer la commande `grunt`.
