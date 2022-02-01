@@ -35,7 +35,6 @@ module.exports = function(grunt) {
 					asset: function(arg) {
 						return grunt.file.expand({cwd: 'docs'}, 'assets/**/'+ arg)[0];
 					},
-					templateName: function() { return grunt.task.current.files[0].template; },
 				},
 				filters: {
 					glob: function(arg) { return grunt.file.expand(arg); },
