@@ -19,6 +19,7 @@
 		<h1>{% block docTitle %}Le beau code web{% endblock %}</h1>
 	</header>
 	<main>
+		{% block docIntroduction %}{% endblock %}
 		{% block docContent %}
 			{% for component in components %}
 				{% include component %}
