@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	
+	<!-- Ne pas modifier ce fichier produit automatiquement à partir d’un ou plusieurs modèles TWIG. -->
+	
+	
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BCW-3 Recommandations le codage CSS — Le beau code web</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="assets/css/mint-and-grapes.css">
+	
+</head>
+<body data-glossary="principes.html .glossary">
+	<header>
+		<h1>BCW-3 Recommandations le codage des feuilles de style</h1>
+	</header>
+	<main>
+		
+		<section>
+			<h2 class="sr-only">Introduction</h2>
+			<p>
+				Les feuilles de style CSS sont principalement constituées de <em>règles de style</em>.
+				Chaque règle comporte un <em>sélecteur</em> ou une <em>liste de sélecteurs</em>
+				<mark class="label" title="1">1</mark>,
+				suivi d’une liste de <em>déclarations</em> (p.ex. <mark class="label" title="2">2</mark>).
+				Chaque déclaration est constituée d’une <em>propriété</em> <mark class="label" title="3">3</mark>
+				suivie d’une <em>valeur</em> <mark class="label" title="4">4</mark>,
+				laquelle peut avoir plusieurs <em>composantes</em> <mark class="label" title="5">5</mark>.
+				Certaines propriétés peuvent admettre des déclarations comportant une
+				<em>liste de valeurs</em> <mark class="label" title="6">6</mark>.
+			</p>
+			<pre><code class="language-css"><mark title="1">h1,
+h2</mark> {
+	<mark title="2">margin: 0 auto;</mark>
+	<mark title="3">color</mark>: <mark title="4">green</mark>;
+	border: <mark title="5">1px</mark> <mark title="5">solid</mark> <mark title="5">black</mark>;
+	font-family: <mark title="6">Arial, Helvetica, sans-serif</mark>;
+}</code></pre>
+			<aside class="bonus">
+				<p>
+					On peut s’aider d’un
+					<a href="https://delmas-rigoutsos.nom.fr/outils/explain-expression/">explicateur de sélecteur CSS</a>
+					pour comprendre des sélecteurs CSS complexes.
+				</p>
+				<p>
+					L’application
+					<a href="https://caniuse.com/"><cite>Can I use…</cite></a>
+					permet de connaître la disponibilité sur les navigateurs de chaque
+					fonctionnalité.
+				</p>
+			</aside>
+		</section>
+
+		
+			
+		
+		
+			<p>
+				Il n’y a pas de recommandation validée pour l’instant.
+				N’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
+			</p>
+		
+	</main>
+	<footer>
+		<p>
+			<a class="bcw" href="./">Le beau code web</a>
+			—
+			avec <i class="fas fa-heart" aria-valuetext="coeur" style="color: darkred;"></i> pour le web
+			—
+			<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Git</a>
+			—
+			<a href="principes.html#mentions-legales"><i class="fas fa-scale-balanced"></i> mentions légales</a>
+		</p>
+	</footer>
+	<script type="module" src="assets/js/glossary.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-invisibles/prism-show-invisibles.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/keep-markup/prism-keep-markup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
