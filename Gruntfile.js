@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 	const chalk = require('chalk');
-	const publicFolder = 'public';
+	const publicFolder = 'docs';
 	const traceFile = function(f) {
 		if ( grunt.file.isFile(f) ) {
 			console.log(chalk.cyan(f), '→', chalk.cyan(grunt.task.current.data.dest));

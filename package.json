@@ -13,7 +13,7 @@
 		"build": {
 			"patterns": ".",
 			"extensions": "twig,html,js,css",
-			"ignore": ["node_modules", "vendor", "public"],
+			"ignore": ["node_modules", "vendor", "docs"],
 			"delay": 1000
 		}
 	},
