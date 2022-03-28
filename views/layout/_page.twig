@@ -22,7 +22,7 @@
 		{% block docIntroduction %}{% endblock %}
 		{% block docContent %}
 			{% for component in components %}
-				{% include component %}
+				{% include '../../' ~ component %}
 			{% endfor %}
 		{% endblock %}
 		{% if block('docContent')|trim is empty %}
