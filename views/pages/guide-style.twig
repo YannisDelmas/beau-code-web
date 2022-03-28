@@ -1,0 +1,40 @@
+{% extends './views/layout/_page.twig' %}
+{% set components = 'guide-style-*.twig'|glob %}
+{% block pageTitle %}BCW-3 Recommandations le codage CSS — Le beau code web{% endblock %}
+{% block docTitle %}BCW-3 Recommandations le codage des feuilles de style{% endblock %}
+{% block docIntroduction %}
+		<section>
+			<h2 class="sr-only">Introduction</h2>
+			<p>
+				Les feuilles de style CSS sont principalement constituées de <em>règles de style</em>.
+				Chaque règle comporte un <em>sélecteur</em> ou une <em>liste de sélecteurs</em>
+				<mark class="label" title="1">1</mark>,
+				suivi d’une liste de <em>déclarations</em> (p.ex. <mark class="label" title="2">2</mark>).
+				Chaque déclaration est constituée d’une <em>propriété</em> <mark class="label" title="3">3</mark>
+				suivie d’une <em>valeur</em> <mark class="label" title="4">4</mark>,
+				laquelle peut avoir plusieurs <em>composantes</em> <mark class="label" title="5">5</mark>.
+				Certaines propriétés peuvent admettre des déclarations comportant une
+				<em>liste de valeurs</em> <mark class="label" title="6">6</mark>.
+			</p>
+			<pre><code class="language-css"><mark title="1">h1,
+h2</mark> {
+	<mark title="2">margin: 0 auto;</mark>
+	<mark title="3">color</mark>: <mark title="4">green</mark>;
+	border: <mark title="5">1px</mark> <mark title="5">solid</mark> <mark title="5">black</mark>;
+	font-family: <mark title="6">Arial, Helvetica, sans-serif</mark>;
+}</code></pre>
+			<aside class="bonus">
+				<p>
+					On peut s’aider d’un
+					<a href="https://delmas-rigoutsos.nom.fr/outils/explain-expression/">explicateur de sélecteur CSS</a>
+					pour comprendre des sélecteurs CSS complexes.
+				</p>
+				<p>
+					L’application
+					<a href="https://caniuse.com/"><cite>Can I use…</cite></a>
+					permet de connaître la disponibilité sur les navigateurs de chaque
+					fonctionnalité.
+				</p>
+			</aside>
+		</section>
+{% endblock %}
