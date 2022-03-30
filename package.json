@@ -1,0 +1,24 @@
+{
+	"name": "beau-code-web",
+	"devDependencies": {
+		"npm-watch": "^0.11.0",
+		"grunt": "^1.4.1",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-twig-render": "^1.8.3",
+		"merge": "^2.1.1",
+		"leader-line": "^1.0.7"
+	},
+	"watchGlobalConfig": { },
+	"watch": {
+		"build": {
+			"patterns": ".",
+			"extensions": "twig,html,js,css",
+			"ignore": ["node_modules", "vendor", "docs"],
+			"delay": 1000
+		}
+	},
+	"scripts": {
+		"build": "grunt",
+		"watch": "npm-watch build"
+	}
+}

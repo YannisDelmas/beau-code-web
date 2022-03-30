@@ -1,0 +1,110 @@
+{% embed './views/partials/_recommandation.twig' %}
+	{% set recId = 'nom-fichiers' %}
+	{% block recTitle %}
+		Noms de fichiers
+	{% endblock %}
+	{% block recContent %}
+			<p>
+				Les noms des fichiers et dossiers utilisés sur le web doivent respecter les règles suivantes.
+			</p>
+			<ol>
+				<li><p>
+					Écriture <abbr title="" class="rfc2119">recommandée</abbr> en <abbr title="">kebab-case</abbr>, sans espace, ni accent (<q>é</q> → <code class="language-shell">e</code>), ni diacritique (<q>ç</q> → <code class="language-shell">c</code>), ni caractère spécial, ni ponctuation.
+				</p></li>
+				<li>
+					<p>
+						Il est <abbr title="" class="rfc2119">recommandé</abbr> de ne pas dépasser 32 caractères, extension comprise.
+					</p>
+					<aside class="bonus">
+						<p>Le chemin complet, depuis la racine, <abbr title="" class="rfc2119">ne doit pas</abbr> dépasser 127 caractères, séparateurs compris.</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Les mots employés <abbr title="" class="rfc2119">devraient</abbr> refléter de façon claire et compréhensible le contenu ou la fonction dans le site du fichier ou dossier.
+						Il convient donc d’éviter des mots très génériques, tels que <q>page</q> ou <q>article</q>, ou trop ambigus.
+						On <abbr title="" class="rfc2119">devrait</abbr> également éviter les <i lang="en">stop words</i> (articles, conjonctions…), qui allongent l’URL sans apporter de contenu sémantique.
+					</p>
+					<aside class="bonus">
+						<p>
+							Pour le référencement, il est <abbr title="" class="rfc2119">recommandé</abbr> d’utiliser des mots-clés stratégiques dans l’URL, sachant que principal critère de <cite>Google search</cite> est la pertinence.
+							Cf. [<a href="principes.html#bibid-TechSEO">TechSEO</a>].
+						</p>
+						<p>
+							On apportera une attention particulière au choix des mots et à leur orthographe&nbsp;: une URL <abbr title="" class="rfc2119">devrait</abbr> être destinée à durer.
+							Cf. [<a href="principes.html#bibid-TechSEO">TechSEO</a>], chap.&nbsp;2.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>Une ou plusieurs extensions <abbr title="" class="rfc2119">doivent</abbr> indiquer le format d'un document.</p>
+					<aside class="bonus">
+						<p>
+							On <abbr title="" class="rfc2119">peut</abbr> utiliser plusieurs extensions pour indiquer un encodage, une langue, etc. Le principal serveur web, Apache, est capable d’adapter sa réponse à l’aide de ces informations [<a href="https://httpd.apache.org/docs/2.4/fr/mod/mod_mime.html">Apache <cite>Mod_mime</cite></a>].
+						</p>
+						<p>
+							Pour des raisons de sécurité, les sites web <abbr title="" class="rfc2119">devraient</abbr> activer la directive <code class="language-http no-wrap">X-Content-Type-Options: nosniff</code>, qui demande aux navigateurs de respecter strictement les types MIME indiqués par le serveur web.
+							[<a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/X-Content-Type-Options">MDN <cite>X-Content-Type-Options</cite></a>]
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/les-en-tetes-envoyes-par-le-serveur-desactivent-la-detection-automatique-du-type-mime-de-chaque-ressource">Opquast <cite>Règle 201</cite></a>]
+						</p>
+					</aside>
+				</li>
+			</ol>
+	{% endblock recContent %}
+	{% block recRationale %}
+				<ol>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">respect des standards</a>
+							Les adresses web sont définies par le document <cite>Uniform Resource Identifier (URI): Generic Syntax</cite> [<a href="https://datatracker.ietf.org/doc/html/rfc3986">RFC&nbsp;3986</a>].
+							Le chemin est sensible à la <abbr title="">casse</abbr>.
+							Comme certains systèmes d’exploitation n’y sont pas sensibles, pour éviter des liens brisés et des erreurs dans l’arborescence, il est habituel de se limiter à des minuscules, même si on pourrait contourner ces difficultés en formulant une règle plus précise.
+							Les caractères autres qu’alphanumériques, <code>-</code>, <code>.</code>, <code>_</code> et <code>~</code> sont recodés.
+							Les caractères <code>.</code> et <code>~</code> ayant une signification particulière dans certains contextes et le souligné <code>_</code> n’étant pas traité comme un séparateur par les moteurs de recherche
+							(cf. <a href="https://www.webrankinfo.com/dossiers/techniques/tiret-underscore"><cite>Web Rank Info&nbsp;: Référencement naturel&nbsp;: dans les URL, le tiret meilleur que l’underscore</cite></a>), les seuls caractères toujours sûrs pour un nom de fichier ou dossier, hors extension, sont les lettres, les chiffres et le tiret <code>-</code>.
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>
+							Pour gagner en lisibilité des adresses, l’habitude est de remplacer tout caractère susceptible d’être encodé dans les bares d’adresse et dans la transcription des URL, par exemple pour des bibliographies.
+							Ceci inclut dont les espaces, les accents et certains caractères spéciaux.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>
+							Plusieurs des systèmes de fichiers et ou explorateurs de fichiers ont une limitation d'environ 250 caractères Unicode (les URL ont une limite supérieure).
+							Toutefois, pour permettre un archivage sur disque optique, il faut adopter la limite du système de fichiers UDF, qui limite les chemins à à 127 caractères Unicode [<a href="https://fr.wikipedia.org/wiki/Universal_Disk_Format">Wikipedia <cite>UDF</cite></a>].</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>
+							Nombre d’explorateurs de fichiers des OS ont, par défaut, une configuration ni n’affiche qu’une vingtaine à une trentaine de caractères.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">respect des standards</a>
+							Cette règle découle du respect des méthodes d’indexation des moteurs de recherche.
+							Sur le référencement naturel (<i lang="en">SEO</i>) et sa dimension technique, cf. [<a href="principes.html#bibid-TechSEO">TechSEO</a>].
+							On notera que les <i lang="en">stop words</i> sont purement et simplement ignorés par l’indexation des moteurs de recherche web.
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-service">service</a>
+							Ceci rend également les URL plus simple à retenir et, le cas échéant, à transcrire, pour les utilisateurs.
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>
+							La persistance des chemins aide à maintenir l’arborescence d’un site.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-lisible">lisibilité</a>
+							Mettre une extension et l’afficher limite les risques d’erreurs de format.
+						</p>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">respect des standards</a>
+							Nombre de serveurs sont paramétrés pour inférer le format des documents à partir de leurs extensions [<a href="https://httpd.apache.org/docs/2.4/fr/mod/mod_mime.html">Apache <cite>Mod_mime</cite></a>].
+						</p>
+					</li>
+				</ol>
+	{% endblock recRationale %}
+{% endembed %}

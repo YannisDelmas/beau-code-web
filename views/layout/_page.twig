@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	{# Ne pas retirer la ligne suivante, qui ne s'applique pas à ce document. #}
+	<!-- Ne pas modifier ce fichier produit automatiquement à partir d’un ou plusieurs modèles TWIG. -->
+	{% set prismjs = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0' %}
+	{% block head %}
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{% block pageTitle %}Le beau code web{% endblock %}</title>
+		<link rel="stylesheet" href="{{ prismjs }}/themes/prism.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="{{ prismjs }}/plugins/show-invisibles/prism-show-invisibles.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="{{ asset('mint-and-grapes.css') }}">
+	{% endblock %}
+</head>
+<body data-glossary="principes.html .glossary">
+	<header>
+		<h1>{% block docTitle %}Le beau code web{% endblock %}</h1>
+	</header>
+	<main>
+		{% block docIntroduction %}{% endblock %}
+		{% block docContent %}
+			{% for component in components %}
+				{% include '../../' ~ component %}
+			{% endfor %}
+		{% endblock %}
+		{% if block('docContent')|trim is empty %}
+			<p>
+				Il n’y a pas de recommandation validée pour l’instant.
+				N’hésitez pas à consulter notre <a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Github</a> pour faire des propositions.
+			</p>
+		{% endif %}
+	</main>
+	<footer>
+		<p>
+			<a class="bcw" href="./">Le beau code web</a>
+			—
+			avec <i class="fas fa-heart" aria-valuetext="coeur" style="color: darkred;"></i> pour le web
+			—
+			<a href="https://github.com/YannisDelmas/beau-code-web/"><i class="fab fa-github"></i> dépôt Git</a>
+			—
+			<a href="principes.html#mentions-legales"><i class="fas fa-scale-balanced"></i> mentions légales</a>
+		</p>
+	</footer>
+	<script type="module" src="{{ asset('glossary.js') }}"></script>
+	<script src="{{ prismjs }}/prism.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="{{ prismjs }}/plugins/show-invisibles/prism-show-invisibles.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="{{ prismjs }}/plugins/keep-markup/prism-keep-markup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="{{ prismjs }}/plugins/autoloader/prism-autoloader.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
