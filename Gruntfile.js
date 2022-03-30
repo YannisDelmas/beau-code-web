@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
-	let chalk = require('chalk');
-
-	let traceFile = function(f) {
+	const chalk = require('chalk');
+	const publicFolder = 'docs';
+	const traceFile = function(f) {
 		if ( grunt.file.isFile(f) ) {
 			console.log(chalk.cyan(f), '→', chalk.cyan(grunt.task.current.data.dest));
 		}
@@ -13,19 +13,19 @@ module.exports = function(grunt) {
 			main: {
 				expand: true,
 				src: '{assets/**,*.html}',
-				dest: 'docs/',
+				dest: publicFolder+'/',
 				filter: traceFile,
 			},
 			JSLibs: {
 				expand: true,
 				flatten: true,
 				src: 'node_modules/leader-line/leader-line.min.js',
-				dest: 'docs/assets/js/',
+				dest: publicFolder+'/assets/js/',
 				filter: traceFile,
 			},
 			licence: {
 				src: 'LICENSE',
-				dest: 'docs/LICENSE.txt',
+				dest: publicFolder+'/LICENSE.txt',
 				filter: traceFile,
 			},
 		},
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 			options: {
 				functions: {
 					asset: function(arg) {
-						return grunt.file.expand({cwd: 'docs'}, 'assets/**/'+ arg)[0];
+						return grunt.file.expand({cwd: publicFolder}, 'assets/**/'+ arg)[0];
 					},
 				},
 				filters: {
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 						expand: true,
 						src: ["*.twig", "!*-+([0-9])?(-*).twig", "!_*.twig"],
 							// tous les modèles TWIG, hormis les composants et les partiels
-						dest: "docs/",
+						dest: publicFolder+'/',
 						ext: ".html"
 					}
 				]
