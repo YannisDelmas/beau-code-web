@@ -2,7 +2,7 @@
 
 ## Documents et dossiers
 
-Les fichiers destinés à la publication sont dans [`/docs`](docs). Ils sont mis à jour à l’aide de la commance `make` (cf. ci-dessous).
+Les fichiers destinés à la publication sont dans [`/docs`](docs). Ils sont mis à jour à l’aide de la commance `grunt` (cf. ci-dessous).
 
 Table des matières : [`index.html`](docs/index.html)
 
