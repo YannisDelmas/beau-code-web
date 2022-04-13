@@ -41,9 +41,9 @@
 					</p>
 					<aside class="bonus">
 						<p>
-							À défaut d’UTF-8, l’encodage
-							<abbr title="" class="rfc2119">devrait</abbr> être,
-							au moins, en Unicode.
+							À défaut de l’encodage UTF-8,
+							le document <abbr title="" class="rfc2119">devrait</abbr> utiliser
+							un des autres encodage d’Unicode&nbsp;: UTF-16 ou éventuellement UTF-32.
 						</p>
 						<p>
 							Outil de vérification&nbsp;:
@@ -150,7 +150,10 @@
 						<p>
 							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>,
 							<a class="principle" href="principes.html#ppe-coherence">cohérence</a>&nbsp;:
-							Les documents XML imposent un encodage Unicode.
+							les processeurs XML doivent accepter les encodages UTF-8 et UTF-16
+							[<a href="https://www.w3.org/TR/2006/REC-xml11-20060816/">XML 1.0</a>].
+							À un autre niveau, d’ailleurs, la politique de l’IETF impose à tous les
+							prococoles d’Internet de reconnaître au minimum UTF-8.
 							Ceci permet une communication dans toutes les langues et sur toutes
 							les plateformes, Unicode décrivant de façon universelle tous les
 							glyphes en usage.
