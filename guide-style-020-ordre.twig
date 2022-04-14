@@ -6,14 +6,71 @@
 	{% block recContent %}
 			<ol>
 				<li>
-					À rédiger
+					<p>
+						Si le sens d’une propriété A dépend de la valeur d’une propriété B,
+						alors A <abbr title="" class="rfc2119">devrait</abbr> apparaître après B.
+					</p>
+					<aside class="bonus">
+						<p>
+							Exemples&nbsp;:
+							<code class="language-css token property">left</code>,
+							<code class="language-css token property">top</code>…
+							dépendent de <code class="language-css token property">position</code>&nbsp;;
+							<code class="language-css token property">vertical-align</code>
+							dépend de <code class="language-css token property">display</code>&nbsp;;
+							les dimensions dépendent de <code class="language-css token property">box-sizing</code>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Les propriétés <abbr title="" class="rfc2119">devraient</abbr> être groupées
+						en blocs cohérents.
+						Pour plus de lisibilité certains blocs ou sous-blocs peuvent être séparés par
+						des lignes vides.
+						Entre les blocs et, éventuellement, au sein d’un bloc, la règle précédente s’applique.
+					</p>
+					<aside class="bonus">
+						<p>
+							Exemple de groupement possible&nbsp;:
+						</p>
+						<ul>
+							<li>Nature de l’élément&nbsp;: <code class="language-css token property">display</code>,</li>
+							<li>Contenu&nbsp;: <code class="language-css token property">content</code>, compteurs,</li>
+							<li>Mise en page (<i lang="en">layout</i>)&nbsp;: visibilité, <code class="language-css token property">position</code>, <code class="language-css token property">top</code>, <code class="language-css token property">right</code>, <code class="language-css token property">bottom</code>, <code class="language-css token property">left</code>, <code class="language-css token property">z-index</code>, <code class="language-css token property">float</code>, <code class="language-css token property">clear</code>,</li>
+							<li>Boîte&nbsp;: <i lang="en">margin</i>, <i lang="en">padding</i>, bordure, dimensions,</li>
+							<li>Mise en forme&nbsp;: typographie (police et autres propriétés de texte), couleurs, images (dont les marqueurs), bordures et arrière-plan.</li>
+						</ul>
+						<p>
+							Une logique similaire consiste à grouper plus finement les propriétés en les
+							ordonnant depuis les plus extérieures à l’élément, jusqu’aux plus intérieures
+							(ordre <q lang="en">outside-in</q>).
+							Il faut continuer de raisonner par blocs, toutefois, pour éviter d’enfreindre la
+							règle précédente.
+						</p>
+					</aside>
 				</li>
 			</ol>
 	{% endblock recContent %}
 	{% block recRationale %}
 				<ol>
 					<li>
-						À rédiger	
+						<p>
+							Découle de l’objectif de <a class="principle" href="#ppe-lisible">lisibilité</a>.
+							Sans cela, pour une compréhension correcte de la règle CSS, un lecteur devrait soit faire
+							des aller-retours parmi les déclarations, soit conserver en mémoire l’ensemble de la règle
+							avant de pouvoir l’interpréter. Suivre l’ordre de dépendance permet donc de réduire
+							la charge mentale des codeurs et les risques d’erreur d’interprétation.
+						</p>
+					</li>
+					<li>
+						<p>
+							Il s’agit ici aussi de <a class="principle" href="#ppe-lisible">lisibilité</a>.
+							Le fait de grouper les déclarations par ensembles cohérents permet à un lecteur
+							d’interpréter chacun puis de passer à la suite.
+							Plus on est régulier dans l’application des règles d’ordre, plus il sera aisé de
+							trouver une propriété particulière d’un simple coup d’œil.
+						</p>
 					</li>
 				</ol>
 	{% endblock recRationale %}
