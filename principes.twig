@@ -83,6 +83,11 @@
 					La maintenabilité est le fait de pouvoir comprendre un code aisément,
 					s’y repérer, y modifier ce qu’il est nécessaire de modifier, pas plus.
 				</p>
+				<p>
+					Ce principe de <a class="principle" href="#ppe-maintenance">maintenabilité</a> et les objectifs qui
+					en découlent, ci-après, s’appliquent autant au code
+					qu’à la documentation associée, interne ou externe.
+				</p>
 			</section>
 
 			<section id="ppe-standard">
@@ -126,9 +131,42 @@
 					<a class="self-link" href="#ppe-coherence"></a>
 				</h3>
 				<p>
-					Découle du principe de <a class="principle" href="#ppe-lisible">Lisibilité</a>&nbsp;:
+					Découle de l’objectif de <a class="principle" href="#ppe-lisible">lisibilité</a>&nbsp;:
 					la cohérence est le fait d’appliquer des choix de façon homogène au sein d’un projet ou d’un collectif de travail.
 					Elle permet ainsi d’alléger la charge cognitive pour lire, créer ou modifier un code.
+				</p>
+			</section>
+
+			<section id="ppe-accessible">
+				<h3>
+					8. Objectif d’<a class="principle" href="#ppe-accessible">accessibilité</a>
+					<a class="self-link" href="#ppe-accessible"></a>
+				</h3>
+				<p>
+					Découle des principes
+					de <a class="principle" href="#ppe-service">service</a> et
+					de <a class="principle" href="#ppe-maintenance">maintenabilité</a>&nbsp;:
+					quand plusieurs façons de coder sont possibles,
+					il faut s’efforcer de privilégier les plus accessibles.
+				</p>
+				<p>
+					<q>L’accessibilité numérique consiste à rendre les services de communication au public en ligne accessibles aux personnes handicapées, c'est-à-dire&nbsp;:
+					perceptibles […]&nbsp;;
+					utilisables […]&nbsp;;
+					compréhensibles […]
+					et robustes&nbsp;: par exemple, optimiser la compatibilité avec les
+					utilisations actuelles et futures, y compris avec les technologies
+					d’assistance.</q>
+					[<a href="#bibid-RGAA">RGAA</a>]
+				</p>
+				<p>
+					Les méthodes d’accessibilité permettent également à certains
+					outils, comme les moteurs de recherche, d’être plus efficaces.
+					Outre la <a class="principle" href="#ppe-maintenance">maintenabilité</a> en général,
+					l’accessibilité peut améliorer la
+					<a class="principle" href="#ppe-coherence">cohérence</a>
+					en formalisant la structuration de la documentation
+					et de certaines fonctionnalités.
 				</p>
 			</section>
 
@@ -226,6 +264,14 @@
 					<cite class="fn" lang="en">Key words for use in RFCs to Indicate Requirement Levels</cite>.
 					<span class="publisher vcard"><span class="fn org">IETF</span></span>.
 					RFC&nbsp;2119 / BCP&nbsp;14.
+				</li>
+				<li class="hcite" id="bibid-RGAA">
+					<span class="identifier">[<a class="url" href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/">RGAA</a>]</span>
+					<span class="creator vcard"><span class="fn org">Direction interministérielle du numérique</span></span>.
+					(<time class="copyright date-published" datetime="2020-12">2020</time>).
+					<cite class="fn">Référentiel général d’amélioration de
+					l’accessibilité, RGAA 4.1</cite>.
+					<span class="publisher vcard"><span class="fn org">gouvernement français</span></span>.
 				</li>
 				<li class="hcite" id="bibid-TechSEO">
 					<span class="identifier">[<a class="url" href="https://www.editions-eyrolles.com/Livre/9782212679861/techniques-de-referencement-web">TechSEO</a>]</span>
