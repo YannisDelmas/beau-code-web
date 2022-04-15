@@ -106,11 +106,11 @@ h4 {
 /* Typographie linguistique */
 
 :lang(fr)>* {
-  quotes: "«\202F""\202F»""‹\202F""\202F›";
+  quotes: "«\202F" "\202F»" "‹\202F" "\202F›";
 }
 
 :lang(en)>* {
-  quotes: "“""”""‘""’";
+  quotes: "“" "”" "‘" "’";
 }
 
 /* cf. https://drafts.csswg.org/css-content/#quotes */
@@ -166,14 +166,14 @@ footer {
 
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   position: relative;
 }
 
-a.self-link {
-  position: absolute;
+h2 > a[rel~=bookmark],
+h3 > a[rel~=bookmark],
+h4 > a[rel~=bookmark] {
+	position: absolute;
   left: -1.5em;
   width: 1em;
   height: calc(var(--line-height) * 1em);
@@ -184,17 +184,15 @@ a.self-link {
   text-decoration: none;
 }
 
-a.self-link:hover {
+a[rel~=bookmark]:hover {
   opacity: 1;
   text-decoration: none;
 }
 
-h2>a.self-link::before,
-h3>a.self-link::before,
-h4>a.self-link::before,
-h5>a.self-link::before,
-h6>a.self-link::before {
-  content: "💬";
+h2 > a[rel~=bookmark]::before,
+h3 > a[rel~=bookmark]::before,
+h4 > a[rel~=bookmark]::before {
+  content: "🔗";
   font-size: calc(100% / var(--inc-typo));
 }
 
