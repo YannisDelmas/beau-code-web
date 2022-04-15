@@ -224,6 +224,126 @@
 	</details>
 </section>
 			
+				<section id="ancres">
+	<h2>
+		
+				Ancres
+	
+		<a class="self-link" href="#ancres"></a>
+	</h2>
+	
+			<ol>
+				<li>
+					<p>
+						La balise <code class="language-html token tag">a</code> ne
+						<abbr title="" class="rfc2119">devrait</abbr> être utilisée que pour
+						représenter un hyperlien, dont la destination est donnée par l’attribut
+						<code class="language-html token attr-name">href</code>,
+						ou éventuellement un emplacement où pourrait se situer un lien,
+						quand il n’y a pas d’attribut <code class="language-html token attr-name">href</code>.
+					</p>
+					<aside class="bonus">
+						<p>
+							En particulier, il est déconseillé d’utiliser un élément
+							<code class="language-html token tag">a</code> pour représenter
+							un bouton, une bascule ou autre élément actif.
+							Si toutefois c’était le cas, il est <abbr title="" class="rfc2119">recommandé</abbr>
+							de l’indiquer avec un attribut ARIA de
+							<code class="language-html token attr-name">role</code>&nbsp;:
+							<code class="language-html token attr-value">button</code>,
+							<code class="language-html token attr-value">checkbox</code>,
+							<code class="language-html token attr-value">radio</code>,
+							<code class="language-html token attr-value">switch</code>,
+							<code class="language-html token attr-value">tab</code> ou
+							<code class="language-html token attr-value">treeitem</code>.
+						</p>
+						<p>
+							On peut utiliser un élément <code class="language-html token tag">a</code> neutralisé,
+							sans attribut <code class="language-html token attr-name">href</code>,
+							par exemple dans un menu, là où se trouverait un lien vers la page courante
+							(<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#example-7250b603">exemple donné par la recommandation</a>).
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						L’attribut <code class="language-html token attr-name">href</code>
+						<abbr title="" class="rfc2119">doit</abbr> être une URL valide.
+						Il ne doit ni être vide, ni se limiter au caractère <code class="language-none">#</code>.
+					</p>
+				</li>
+				<li>
+					<p>
+						La construction <code class="language-html">&lt;a name="…" …></code> est obsolète.
+						Elle <abbr title="" class="rfc2119">ne devrait pas</abbr> être utilisée.
+					</p>
+					<aside class="bonus">
+						<p>
+							La désignation d’un fragment se fait à l’aide
+							de l’attribut <code class="language-html token attr-name">id</code>
+							et non plus de l’attribut <code class="language-html token attr-name">name</code>.
+						</p>
+						<p>
+							Les pages et sections sont les unités porteuses de sens&nbsp;; ce sont elles
+							qu’il faut désigner comme destination des hyperliens.
+							C’est sur ces sections qu’il faut placer l’attribut
+							<code class="language-html token attr-name">id</code>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						On <abbr title="" class="rfc2119">peut</abbr> utiliser l’attribut
+						<code class="language-html token attr-name">rel</code> pour qualifier la relation
+						entre le document ou la section en cours et la destination d’un hyperlien.
+					</p>
+					<aside class="bonus">
+						<p>
+							Par exemple, pour un auto-lien, c’est à dire un lien associé à un titre de section
+							ou à la section elle-même et ayant celle-ci comme destination, il est
+							préférable d’écrire <code class="language-html">&lt;a rel="bookmark" …></code>,
+							plutôt que d’utiliser une classe.
+							Comme l’attribut <code class="language-html token attr-name">rel</code> peut comporter
+							plusieurs valeurs séparées par des espaces, le sélecteur CSS correspondant est
+							<code class="language-css token selector">[rel~=bookmark]</code>.
+						</p>
+					</aside>
+				</li>
+			</ol>
+	
+	<details class="rationale">
+		<summary>Justification</summary>
+		
+				<ol>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>&nbsp;:
+							[<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#elementdef-a">HTML 5.2, l’élément <code class="language-html token tag">a</code></a>].
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>&nbsp;:
+							[<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#element-attrdef-a-href">HTML 5.2, the <code class="language-html token tag">href</code> attribute</a>].
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>&nbsp;:
+							[<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#obsolete-but-conforming-features">HTML 5.2, Obsolete but conforming features</a>].
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>&nbsp;:
+							[<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#sec-link-types">HTML 5.2, Link types</a>].
+						</p>
+					</li>
+				</ol>
+	
+	</details>
+</section>
+			
 		
 		
 	</main>
