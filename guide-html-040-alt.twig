@@ -1,0 +1,110 @@
+{% embed './views/partials/_recommandation.twig' %}
+	{% set recId = 'alt' %}
+	{% block recTitle %}
+				Textes alternatifs
+	{% endblock %}
+	{% block recContent %}
+			<p>
+				Les images et autres médias non textuels sont associés à un texte alternatif
+				qui est rendu par le navigateur quand ils ne sont pas disponibles, que cette
+				situation soit temporaire ou non.
+				Pour les images de balise <code class="language-html token tag">img</code>,
+				il s’agit de l’attribut <code class="language-html token attr-name">alt</code>.
+				Il convient d’adapter les recommandations suivantes aux autres types de médias
+				(<code class="language-html token tag">area</code>,
+				<code class="language-html token tag">picture</code>,
+				<code class="language-html token tag">video</code>
+				<code class="language-html token tag">embed</code>…).
+				Si aucun attribut de texte alternatif n’est disponible, envisagez d’utiliser
+				l’attribut générique <code class="language-html token attr-name">aria-label</code>.
+			</p>
+			<ol>
+				<li>
+					<p>
+						L’attribut <code class="language-html token attr-name">alt</code>
+						est <abbr title="" class="rfc2119">obligatoire</abbr>, éventuellement vide.
+					</p>
+				</li>
+				<li>
+					<p>
+						Si une image est seulement décorative, qu’elle n’ajoute pas d’information
+						à ce qui est déjà présent dans son contexte, son texte alternatif
+						<abbr title="" class="rfc2119">devrait</abbr> rester vide.
+					</p>
+					<aside class="bonus">
+						<p>
+							Cf. [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-decorative-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 111</cite></a>] pour plus de détails.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Si une image apporte une information, son texte alternatif
+						<abbr title="" class="rfc2119">devrait</abbr> reprendre l’essentiel de cette information.
+					</p>
+					<aside class="bonus">
+						<p>
+							Si l’information véhiculée par l’image est présente dans le contexte,
+							l’image doit être considérée comme décorative et l’attribut
+							<code class="language-html token attr-name">alt</code> rester vide.
+						</p>
+						<p>
+							Le texte alternatif vise à remplacer l’image en attendant son chargement ou à destination
+							d’un utilisateur malvoyant utilisant un lecteur de page ainsi que des moteurs de recherche.
+							Ce texte n’est (presque) jamais descriptif.
+						</p>
+						<p>
+							Pour en savoir plus, cf. [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-lien-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 112</cite></a>]
+							et [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-porteuse-dinformation-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 113</cite></a>].
+						</p>
+						<p>
+							TODO: À voir:
+							Renvoi vers OpQuast: 4, 1, 73 et 3 en relativisant, 24, 5 en relativisant?
+						</p>
+					</aside>
+					<p>
+						Par exemple, si l’image est le logo d’une société ou d’une institution,
+						le texte alternatif sera le nom de cette entité.
+					</p>
+					<aside class="example side-by-side">
+						<figure>
+							<img src="assets/images/logo-Villebourg-sur-Riviere-xs.png" alt="Villebourg sur Rivière">
+							<figcaption>Une création de <a href="https://geoffreydorne.com/mairie/">Geoffrey Dorne</a></figcaption>
+						</figure>
+						<div>
+							<p>☺️ Texte alternatif&nbsp;: <code class="language-none">Villebourg sur Rivière</code></p>
+							<p>😢 Mais pas&nbsp;: <code class="language-none">logo de Villebourg sur Rivière</code></p>
+							<p>😭 Ni&nbsp;: <code class="language-none">logo</code></p>
+						</div>
+					</aside>
+					<p>
+						TODO: Exemples de commentaires faits en retour à des projets d'étudiants: intérêt pour le SEO, penser fonctionnel (p.ex. «chercher» et non «loupe»), penser au contexte (p.ex. «Alexandre III» et non «personnage principal du manga») et, de façon générale, éviter la description (p.ex. «hopital» et non «photographie d’hopital»).
+					</p>
+				</li>
+				<li>
+					<p>
+						Le texte alternatif <abbr title="" class="rfc2119">peut</abbr> utiliser des
+						mots-clés pertinents pour le référencement de l’image ou du texte à proximité.
+						Toutefois, ce texte alternatif <abbr title="" class="rfc2119">ne doit pas</abbr>
+						être trop long.
+					</p>
+					<aside class="bonus">
+						<p>
+							Si vous avez besoin d’un texte plus long, c’est probablement qu’il faudrait
+							compléter le texte environnant. Posez-vous la question de la meilleure expérience
+							utilisateur possible pour un visiteur utilisant un lecteur audio.
+						</p>
+					</aside>
+				</li>
+			</ol>
+	{% endblock recContent %}
+	{% block recRationale %}
+				<ol>
+					<li>
+						<p>
+							TODO
+						</p>
+					</li>
+				</ol>
+	{% endblock recRationale %}
+{% endembed %}

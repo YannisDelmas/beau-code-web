@@ -12,12 +12,13 @@
   --famille-texte: 'Open Sans', 'Lucida Sans', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
   --rapport-titre-texte: 1; /* rapport de hauteur d'x entre les deux familles précédentes */
   --famille-tags: var(--famille-texte);
-  --teinte-primaire: 165, 88%;
-  --teinte-secondaire: 288, 30%;
-  --teinte-complements: 0, 0%;
+  --teinte-texte: 0, 0%;   /* gray */
+  --teinte-primaire: 165, 88%;   /* mint */
+  --teinte-secondaire: 288, 30%; /* grapes */
+  --teinte-complements: var(--teinte-texte);
   --teinte-justifications: 200, 50%;
-  --couleur-corps-texte: #555;
-  --couleur-titre: #333;
+  --couleur-corps-texte: hsl(var(--teinte-texte), 30%);
+  --couleur-titre: hsl(var(--teinte-texte), 20%);
   --couleur-mark-text: var(--couleur-titre);
   --couleur-mark1: hsl(50, 60%, 80%);
   --couleur-mark2: hsl(110, 60%, 80%);
@@ -173,7 +174,7 @@ h4 {
 h2 > a[rel~=bookmark],
 h3 > a[rel~=bookmark],
 h4 > a[rel~=bookmark] {
-	position: absolute;
+    position: absolute;
   left: -1.5em;
   width: 1em;
   height: calc(var(--line-height) * 1em);
@@ -210,15 +211,25 @@ a:hover {
 }
 
 .sr-only { /* only for screen readers */
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+figure {
+    text-align: center;
+}
+
+.side-by-side {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 
@@ -253,29 +264,59 @@ h4 .principle {
 
 /* Compléments */
 
-aside,
+aside.example,
+aside.bonus,
 details.rationale {
   margin: 1rem 4rem;
   padding: 0 1rem;
   border-radius: 1rem;
+}
+
+aside.example,
+aside.bonus {
+  border: 1px solid hsl(var(--teinte-complements), 40%);
+  position: relative;
+}
+
+aside.example {
+  background-color: #FFF;
+}
+
+aside.bonus {
+  background-color: hsla(var(--teinte-complements), 75%, 0.2);
+}
+
+aside.bonus,
+details.rationale {
   font-size: calc(100% / var(--inc-typo));
 }
 
-aside {
+aside.example::before,
+aside.bonus::before {
+  display: block;
+  position: absolute;
+  border-radius: 0.5rem;
+}
+
+aside.example::before {
+  content: "exemple";
+  top: -0.6rem;
+  font-size: calc(1rem / var(--inc-typo));
+  height: 1em;
+  line-height: 1em;
+  padding: 0.25em;
   border: 1px solid hsl(var(--teinte-complements), 40%);
-  background-color: hsla(var(--teinte-complements), 75%, 0.2);
+  background-color: #FFF;
 }
 
 aside.bonus::before {
   content: "+";
-  display: block;
+  top: -0.5rem;
   font-size: calc(var(--inc-typo-x2) * 100%);
   font-weight: bold;
   width: 1rem;
   height: 1rem;
   line-height: 1rem;
-  margin: -0.5rem 0;
-  border-radius: 0.5rem;
   text-align: center;
   background-color: hsl(var(--teinte-complements), 40%);
   color: hsl(var(--teinte-complements), 75%);
@@ -301,48 +342,48 @@ details.rationale>summary {
 
 mark[title="1"].label,
 code mark[title="1"] {
-	background-color: var(--couleur-mark1);
+    background-color: var(--couleur-mark1);
 }
 mark[title="2"].label,
 code mark[title="2"] {
-	background-color: var(--couleur-mark2);
+    background-color: var(--couleur-mark2);
 }
 mark[title="3"].label,
 code mark[title="3"] {
-	background-color: var(--couleur-mark3);
+    background-color: var(--couleur-mark3);
 }
 mark[title="4"].label,
 code mark[title="4"] {
-	background-color: var(--couleur-mark4);
+    background-color: var(--couleur-mark4);
 }
 mark[title="5"].label,
 code mark[title="5"] {
-	background-color: var(--couleur-mark5);
+    background-color: var(--couleur-mark5);
 }
 mark[title="6"].label,
 code mark[title="6"] {
-	background-color: var(--couleur-mark6);
+    background-color: var(--couleur-mark6);
 }
 code mark[title] {
-	position: relative;
+    position: relative;
 }
 code mark[title]::before {
-	content: attr(title);
-	font-size: calc(100% / var(--inc-typo-x2));
-	position: absolute;
-	top: -0.5em;
-	left: -0.75em;
-	background-color: inherit;
+    content: attr(title);
+    font-size: calc(100% / var(--inc-typo-x2));
+    position: absolute;
+    top: -0.5em;
+    left: -0.75em;
+    background-color: inherit;
 }
 mark.label,
 code mark[title]::before {
-	display: inline-block;
-	height: 1em;
-	width: 1em;
-	line-height: 1em;
-	border-radius: 0.5em;
-	text-align: center;
-	color: var(--couleur-mark-text);
-	font-family: var(--famille-texte);
-	font-style: normal;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    line-height: 1em;
+    border-radius: 0.5em;
+    text-align: center;
+    color: var(--couleur-mark-text);
+    font-family: var(--famille-texte);
+    font-style: normal;
 }
