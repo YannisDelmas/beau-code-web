@@ -361,7 +361,7 @@
 				Il convient d’adapter les recommandations suivantes aux autres types de médias
 				(<code class="language-html token tag">area</code>,
 				<code class="language-html token tag">picture</code>,
-				<code class="language-html token tag">video</code>
+				<code class="language-html token tag">video</code>,
 				<code class="language-html token tag">embed</code>…).
 				Si aucun attribut de texte alternatif n’est disponible, envisagez d’utiliser
 				l’attribut générique <code class="language-html token attr-name">aria-label</code>.
@@ -402,16 +402,50 @@
 							Ce texte n’est (presque) jamais descriptif.
 						</p>
 						<p>
-							Pour en savoir plus, cf. [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-lien-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 112</cite></a>]
+							Pour en savoir plus, cf.
+							[<a href="https://www.w3.org/WAI/tutorials/images/decision-tree/"><cite>Arbre de décision</cite> du W3C</a>],
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-lien-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 112</cite></a>]
 							et [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-porteuse-dinformation-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 113</cite></a>].
-						</p>
-						<p>
-							TODO: À voir:
-							Renvoi vers OpQuast: 4, 1, 73 et 3 en relativisant, 24, 5 en relativisant?
 						</p>
 					</aside>
 					<p>
-						Par exemple, si l’image est le logo d’une société ou d’une institution,
+						Par exemple, si l’image est une icône, le texte alternatif doit normalement 
+						renvoyer à sa fonction, et non à son aspect.
+					</p>
+					<aside class="example">
+						<table>
+							<thead>
+								<tr>
+									<th>image</th>
+									<th>☹️ à éviter</th>
+									<th><code class="language-html token attr-name">alt</code> 👍</th>
+									<th>remarque</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>💾</td>
+									<td>disquette</td>
+									<td>enregistrer</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>🔍</td>
+									<td>loupe</td>
+									<td>chercher</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><img src="assets/images/icon-file-pdf.svg" alt="fichier PDF" style="max-width:2em;"></td>
+									<td>icône PDF</td>
+									<td>télécharger (PDF)</td>
+									<td>à adapter au contexte (préciser le poids, p.&nbsp;ex.)</td>
+								</tr>
+							</tbody>
+						</table>
+					</aside>
+					<p>
+						De même, si l’image est le logo d’une société ou d’une institution,
 						le texte alternatif sera le nom de cette entité.
 					</p>
 					<aside class="example side-by-side">
@@ -425,9 +459,6 @@
 							<p>😭 Ni&nbsp;: <code class="language-none">logo</code></p>
 						</div>
 					</aside>
-					<p>
-						TODO: Exemples de commentaires faits en retour à des projets d'étudiants: intérêt pour le SEO, penser fonctionnel (p.ex. «chercher» et non «loupe»), penser au contexte (p.ex. «Alexandre III» et non «personnage principal du manga») et, de façon générale, éviter la description (p.ex. «hopital» et non «photographie d’hopital»).
-					</p>
 				</li>
 				<li>
 					<p>

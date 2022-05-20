@@ -103,6 +103,18 @@ h4 {
   font-size: calc(var(--rapport-titre-texte) * 100%);
 }
 
+th {
+  background-color: hsla(var(--teinte-complements), 75%, 0.2);
+  font-weight: bold;
+}
+tr:nth-child(2n+1) > td {
+  background-color: hsla(var(--teinte-primaire), 75%, 0.1);
+}
+tr:nth-child(2n) > td {
+  background-color: hsla(var(--teinte-secondaire), 75%, 0.1);
+}
+
+
 
 /* Typographie linguistique */
 
@@ -162,6 +174,14 @@ footer {
   margin: 2rem 0 0;
 }
 
+table {
+	margin: 1rem 0;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0.25rem 0.75rem;
+	border-bottom: 1px solid hsl(var(--teinte-complements), 40%);
+}
 
 /* Auto-liens dans des titres */
 
