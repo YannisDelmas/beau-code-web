@@ -358,7 +358,7 @@
 				situation soit temporaire ou non.
 				Pour les images de balise <code class="language-html token tag">img</code>,
 				il s’agit de l’attribut <code class="language-html token attr-name">alt</code>.
-				Il convient d’adapter les recommandations suivantes aux autres types de médias
+				Il convient d’adapter les recommandations suivantes aux autres types d’éléments
 				(<code class="language-html token tag">area</code>,
 				<code class="language-html token tag">picture</code>,
 				<code class="language-html token tag">video</code>,
@@ -406,6 +406,7 @@
 							[<a href="https://www.w3.org/WAI/tutorials/images/decision-tree/"><cite>Arbre de décision</cite> du W3C</a>],
 							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-lien-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 112</cite></a>]
 							et [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-porteuse-dinformation-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 113</cite></a>].
+							La <a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#alt-text">recommandation HTML 5.2</a> détaille de nombreux autres exemples.
 						</p>
 					</aside>
 					<p>
@@ -480,13 +481,24 @@
 	<details class="rationale">
 		<summary>Justification</summary>
 		
-				<ol>
-					<li>
-						<p>
-							TODO
-						</p>
-					</li>
-				</ol>
+				<p>
+					<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>&nbsp;:
+					<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#alt-text">recommandation HTML 5.2</a>.
+				</p>
+				<p>
+					<a class="principle" href="principes.html#ppe-accessible">Accessibilité</a>&nbsp;:
+					<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#alt-text">WCAG 2.0, §1.1</a>.
+				</p>
+				<p>
+					Les règles d’<a class="principle" href="principes.html#ppe-accessible">accessibilité</a>,
+					sont souvent également pertinentes pour le référencement naturel,
+					ce qui améliore le <a class="principle" href="principes.html#ppe-service">service</a>
+					rendu aux utilisateurs ainsi que le nombre de visiteurs, si ce référencement est
+					bien pensé (SEO).
+					Il faut veiller à ne pas abuser des mot-clés dans un texte alternatif&nbsp;:
+					un texte déraisonnablement long pourrait être repéré par un moteur de recherche comme
+					abusif et entraîner une pénalité.
+				</p>
 	
 	</details>
 </section>
