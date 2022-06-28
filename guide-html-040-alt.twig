@@ -1,0 +1,154 @@
+{% embed './views/partials/_recommandation.twig' %}
+	{% set recId = 'alt' %}
+	{% block recTitle %}
+				Textes alternatifs aux images et autres médias
+	{% endblock %}
+	{% block recContent %}
+			<p>
+				Les images et autres médias non textuels sont associés à un texte alternatif
+				qui est rendu par le navigateur quand ils ne sont pas disponibles, que cette
+				situation soit temporaire ou non.
+				Pour les images de balise <code class="language-html token tag">img</code>,
+				il s’agit de l’attribut <code class="language-html token attr-name">alt</code>.
+				Il convient d’adapter les recommandations suivantes aux autres types d’éléments
+				(<code class="language-html token tag">area</code>,
+				<code class="language-html token tag">picture</code>,
+				<code class="language-html token tag">video</code>,
+				<code class="language-html token tag">embed</code>…).
+				Si aucun attribut de texte alternatif n’est disponible, envisagez d’utiliser
+				l’attribut générique <code class="language-html token attr-name">aria-label</code>.
+			</p>
+			<ol>
+				<li>
+					<p>
+						L’attribut <code class="language-html token attr-name">alt</code>
+						de la balise <code class="language-html token tag">img</code>
+						est <abbr title="" class="rfc2119">obligatoire</abbr>, éventuellement vide.
+					</p>
+				</li>
+				<li>
+					<p>
+						Si une image est seulement décorative, qu’elle n’ajoute pas d’information
+						à ce qui est déjà présent dans son contexte, son texte alternatif
+						<abbr title="" class="rfc2119">devrait</abbr> rester vide.
+					</p>
+					<aside class="bonus">
+						<p>
+							Cf. [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-decorative-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 111</cite></a>] pour plus de détails.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Si une image apporte une information, son texte alternatif
+						<abbr title="" class="rfc2119">devrait</abbr> reprendre l’essentiel de cette information.
+					</p>
+					<aside class="bonus">
+						<p>
+							Si l’information véhiculée par l’image est présente dans le contexte,
+							l’image doit être considérée comme décorative et l’attribut
+							<code class="language-html token attr-name">alt</code> rester vide.
+						</p>
+						<p>
+							Le texte alternatif vise à remplacer l’image en attendant son chargement ou à destination
+							d’un utilisateur malvoyant utilisant un lecteur de page ainsi que des moteurs de recherche.
+							Ce texte n’est (presque) jamais descriptif.
+						</p>
+						<p>
+							Pour en savoir plus, cf.
+							[<a href="https://www.w3.org/WAI/tutorials/images/decision-tree/"><cite>Arbre de décision</cite> du W3C</a>],
+							[<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-lien-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 112</cite></a>]
+							et [<a href="https://checklists.opquast.com/fr/assurance-qualite-web/chaque-image-porteuse-dinformation-est-dotee-dune-alternative-textuelle-appropriee">Opquast <cite>Règle 113</cite></a>].
+							La <a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#alt-text">recommandation HTML 5.2</a> détaille de nombreux autres exemples.
+						</p>
+					</aside>
+					<p>
+						Par exemple, si l’image est une icône, le texte alternatif doit normalement 
+						renvoyer à sa fonction, et non à son aspect.
+					</p>
+					<aside class="example">
+						<table>
+							<thead>
+								<tr>
+									<th>image</th>
+									<th>☹️ à éviter</th>
+									<th><code class="language-html token attr-name">alt</code> 👍</th>
+									<th>remarque</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>💾</td>
+									<td>disquette</td>
+									<td>enregistrer</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>🔍</td>
+									<td>loupe</td>
+									<td>chercher</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><img src="assets/images/icon-file-pdf.svg" alt="fichier PDF" style="max-width:2em;"></td>
+									<td>icône PDF</td>
+									<td>télécharger (PDF)</td>
+									<td>à adapter au contexte (préciser le poids, p.&nbsp;ex.)</td>
+								</tr>
+							</tbody>
+						</table>
+					</aside>
+					<p>
+						De même, si l’image est le logo d’une société ou d’une institution,
+						le texte alternatif sera le nom de cette entité.
+					</p>
+					<aside class="example side-by-side">
+						<figure>
+							<img src="assets/images/logo-Villebourg-sur-Riviere-xs.png" alt="Villebourg sur Rivière">
+							<figcaption>Une création de <a href="https://geoffreydorne.com/mairie/">Geoffrey Dorne</a></figcaption>
+						</figure>
+						<div>
+							<p>☺️ Texte alternatif&nbsp;: <code class="language-none">Villebourg sur Rivière</code></p>
+							<p>😢 Mais pas&nbsp;: <code class="language-none">logo de Villebourg sur Rivière</code></p>
+							<p>😭 Ni&nbsp;: <code class="language-none">logo</code></p>
+						</div>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Le texte alternatif <abbr title="" class="rfc2119">peut</abbr> utiliser des
+						mots-clés pertinents pour le référencement de l’image ou du texte à proximité.
+						Toutefois, ce texte alternatif <abbr title="" class="rfc2119">ne doit pas</abbr>
+						être trop long.
+					</p>
+					<aside class="bonus">
+						<p>
+							Si vous avez besoin d’un texte plus long, c’est probablement qu’il faudrait
+							compléter le texte environnant. Posez-vous la question de la meilleure expérience
+							utilisateur possible pour un visiteur utilisant un lecteur audio.
+						</p>
+					</aside>
+				</li>
+			</ol>
+	{% endblock recContent %}
+	{% block recRationale %}
+				<p>
+					<a class="principle" href="principes.html#ppe-standard">Respect des standards</a>&nbsp;:
+					<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#alt-text">recommandation HTML 5.2</a>.
+				</p>
+				<p>
+					<a class="principle" href="principes.html#ppe-accessible">Accessibilité</a>&nbsp;:
+					<a href="https://www.w3.org/TR/2017/REC-html52-20171214/single-page.html#alt-text">WCAG 2.0, §1.1</a>.
+				</p>
+				<p>
+					Les règles d’<a class="principle" href="principes.html#ppe-accessible">accessibilité</a>,
+					sont souvent également pertinentes pour le référencement naturel,
+					ce qui améliore le <a class="principle" href="principes.html#ppe-service">service</a>
+					rendu aux utilisateurs ainsi que le nombre de visiteurs, si ce référencement est
+					bien pensé (SEO).
+					Il faut veiller à ne pas abuser des mot-clés dans un texte alternatif&nbsp;:
+					un texte déraisonnablement long pourrait être repéré par un moteur de recherche comme
+					abusif et entraîner une pénalité.
+				</p>
+	{% endblock recRationale %}
+{% endembed %}
