@@ -1,0 +1,170 @@
+{% embed './views/partials/_recommandation.twig' %}
+	{% set recId      = 'selecteurs' %}
+	{% set recVersion = '1.0.0-alpha1' %}
+	{% set recDate    = '2023-01-25' %}
+	{% block recTitle %}
+				Définition des sélecteurs CSS
+	{% endblock %}
+	{% block recContent %}
+			<p>
+				<strong>Explications à placer au début de la page.-</strong>
+				Un sélecteur CSS est constitué de <em>sélecteurs simples</em>
+				(au sens de CSS3)
+				qui peuvent être juxtaposé en <em>séquences</em>,
+				lesquelles peuvent se combiner grâce à des <em>combinateurs</em>.
+				Un sélecteur simple est :
+				un sélecteur universel (<code class="language-css token selector">*</code>),
+				un sélecteur de balise ou type (ex. : <code class="language-css token selector">nav</code>),
+				un sélecteur de pseudo-classe (ex. : <code class="language-css token selector">:valid</code>),
+				un sélecteur d’attribut (ex. : <code class="language-css token selector">a[href]</code>),
+				un sélecteur de classe (ex. : <code class="language-css token selector">.nouvelles</code>) ou
+				un sélecteur d’identifiant (ex. : <code class="language-css token selector">#contact</code>).
+			</p>
+			<p>
+				<strong>Explications qui restent ici.-</strong>
+				Un élément peut être désigné par un <code class="language-css token selector">#identifiant</code>,
+				par un type défini par son nom de <code class="language-css token selector">balise</code>,
+				ou par diverses qualités définies par ses attributs ou ses propriétés.
+				L’identifiant fonctionne un peu comme un nom propre,
+				le type comme un nom commun
+				et les diverses qualités comme des adjectifs ou des compléments du nom.
+				Parmi ces qualités on trouve notamment des <code class="language-css token selector">.classes</code>
+				et des <code class="language-css token selector">:pseudo-classes</code>.
+				Les règles suivantes s’appliquent à la rédaction des sélecteurs, par ordre
+				décroissant d’importance et sous réserve de la compatibilité recherchée.
+			</p>
+			<ol>
+				<li>
+					<p>
+						Quand un élément peut être défini par un type, une balise,
+						il est <abbr title="" class="rfc2119">recommandé</abbr>
+						de préférer cette solution aux solutions suivantes ou à tout autre.
+					</p>
+					<aside class="bonus">
+						<p>
+							Par exemple, utiliser de préférence une balise sémantique
+							<code class="language-html">&lt;article></code> plutôt
+							qu’un attribut ARIA (<code class="language-html no-wrap">&lt;… role="article"></code>)
+							ou qu’une classe (<code class="language-html no-wrap">&lt;… class="article"></code>).
+						</p>
+						<p>
+							Comme il est possible que plusieurs balises <code class="language-html">&lt;html></code>
+							apparaissent dans un document XML ou HTML 5, cette règle ne s’applique pas
+							au type <code class="language-css token selector">html</code> quand il s’agit
+							de désigner le document entier.
+							Dans ce cas, on préférera <code class="language-css token selector">:root</code>.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Quand un élément peut être défini par une pseudo-classe décrivant un état
+						ou une propriété,
+						il est <abbr title="" class="rfc2119">recommandé</abbr>
+						de préférer cette solution aux solutions suivantes ou à tout autre.
+					</p>
+					<p>
+						À l’exception de <code class="language-css token selector">:root</code>,
+						cette règle ne concerne pas les pseudo-classes dites structurelles qui indiquent
+						un emplacement dans l’arborescence du document.
+					</p>
+					<aside class="bonus">
+						<p>Principales pseudo-classes d’état :</p>
+						<ul>
+							<li>
+								dynamiques ou d’interaction:
+								<code class="language-css token selector">:link</code>,
+								<code class="language-css token selector">:visited</code>,
+								<code class="language-css token selector">:active</code>,
+								<code class="language-css token selector">:hover</code>,
+								<code class="language-css token selector">:focus</code>,
+								<code class="language-css token selector">:target</code> ;
+							</li>
+							<li>
+								possibilités de saisie:
+								<code class="language-css token selector">:disabled</code>,
+								<code class="language-css token selector">:enabled</code>,
+								<code class="language-css token selector">:read-write</code>,
+								<code class="language-css token selector">:read-only</code> ;
+							</li>
+							<li>
+								saisie proprement dite:
+								<code class="language-css token selector">:blank</code>,
+								<code class="language-css token selector">:checked</code>,
+								<code class="language-css token selector">:default</code> ;
+							</li>
+							<li>
+								validation de saisie:
+								<code class="language-css token selector">:invalid</code>,
+								<code class="language-css token selector">:valid</code>,
+								<code class="language-css token selector">:required</code>,
+								<code class="language-css token selector">:optional</code> ;
+							</li>
+							<li>
+								structure:
+								<code class="language-css token selector">:root</code>,
+								<code class="language-css token selector">:empty</code>,
+								<code class="language-css token selector">:lang()</code>.
+							</li>
+						</ul>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Quand un élément peut être défini par des attributs déjà existants
+						pour sa sémantique, son fonctionnement ou son accessibilité,
+						il est <abbr title="" class="rfc2119">recommandé</abbr>
+						de préférer cette solution aux solutions suivantes ou à tout autre.
+					</p>
+					<p>
+						C’est <abbr title="" class="rfc2119">recommandé</abbr>, de même,
+						quand de tels attributs pourraient être ajoutés sans difficulté particulière.
+					</p>
+					<aside class="bonus">
+						<p>
+							Exemples&nbsp;:
+						</p>
+						<ul>
+							<li>
+								<code class="language-css token selector">[rel~=bookmark]</code> pour un auto-lien,
+								c’est à dire un lien placé dans le titre d’une section et qui renvoie à cette
+								section elle-même
+							</li>
+							<li>
+								<code class="language-css token selector">[open]</code> pour l’état
+								d’un élément <code class="language-html">&lt;details></code>
+								(mis à jour automatiquement par le navigateur)
+							</li>
+							<li>
+								<code class="language-css token selector">[role=toolbar]</code> ou autre
+								indication de la fonction d’un élément particulier.
+							</li>
+							<li>
+								<code class="language-css token selector">[aria-busy=true]</code>
+								ou de nombreux autres attributs ARIA permettant d’améliorer l’accessibilité
+							</li>
+						</ul>
+						<p>
+							Pour certains sélecteurs rares, il peut être utile d’ajouter un commentaire
+							à la feuille de style pour indiquer sa signification ou renvoyer vers une
+							documentation.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						(à compléter)
+					</p>
+				</li>
+			</ol>
+	{% endblock recContent %}
+	{% block recRationale %}
+				<ol>
+					<li>
+						<p>
+							TODO
+						</p>
+					</li>
+				</ol>
+	{% endblock recRationale %}
+{% endembed %}
