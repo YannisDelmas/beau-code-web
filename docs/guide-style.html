@@ -40,6 +40,24 @@ h2</mark> {
 	border: <mark title="5">1px</mark> <mark title="5">solid</mark> <mark title="5">black</mark>;
 	font-family: <mark title="6">Arial, Helvetica, sans-serif</mark>;
 }</code></pre>
+			<p>
+				Un sélecteur CSS est constitué de <em>sélecteurs simples</em>
+				qui peuvent être juxtaposé en <em>sélecteurs composites</em>,
+				lesquels peuvent se combiner grâce à des <em>combinateurs</em>
+				(définitions de
+				[<a href="https://www.w3.org/TR/selectors-3/#selector-syntax">CSS3</a>] et
+				[<a href="https://www.w3.org/TR/selectors-4/#structure">CSS4</a>]).
+				Quand il y a combinaison, on parle de <em>sélecteurs complexes</em>.
+			</p>
+			<p>
+				Un sélecteur simple est :
+				un sélecteur universel (<code class="language-css token selector">*</code>),
+				un sélecteur de balise ou type (p. ex. <code class="language-css token selector">nav</code>),
+				un sélecteur de pseudo-classe (p. ex. <code class="language-css token selector">:valid</code>),
+				un sélecteur d’attribut (p. ex. <code class="language-css token selector">a[href]</code>),
+				un sélecteur de classe (p. ex. <code class="language-css token selector">.nouvelles</code>) ou
+				un sélecteur d’identifiant (p. ex. <code class="language-css token selector">#contact</code>).
+			</p>
 			<aside class="bonus">
 				<p>
 					On peut s’aider d’un
@@ -307,37 +325,27 @@ h2</mark> {
 				<section id="selecteurs">
 	<h2>
 		
-				Définition des sélecteurs CSS
+				Choisir ses sélecteurs CSS
 	
 		<a rel="bookmark" href="#selecteurs"></a>
 	</h2>
 	
+			<aside class="bonus">
+				<p>
+					Un élément peut être désigné par un <code class="language-css token selector">#identifiant</code>,
+					par un type défini par son nom de <code class="language-css token selector">balise</code>,
+					ou par diverses qualités définies par ses attributs ou ses propriétés.
+					Pour sélectionner ces qualités on trouve notamment des
+					<code class="language-css token selector">.classes</code>
+					et des <code class="language-css token selector">:pseudo-classes</code>.
+					L’identifiant fonctionne un peu comme un nom propre,
+					le type comme un nom commun
+					et les diverses qualités comme des adjectifs ou des compléments du nom.
+				</p>
+			</aside>
 			<p>
-				<strong>Explications à placer au début de la page.-</strong>
-				Un sélecteur CSS est constitué de <em>sélecteurs simples</em>
-				(au sens de CSS3)
-				qui peuvent être juxtaposé en <em>séquences</em>,
-				lesquelles peuvent se combiner grâce à des <em>combinateurs</em>.
-				Un sélecteur simple est :
-				un sélecteur universel (<code class="language-css token selector">*</code>),
-				un sélecteur de balise ou type (ex. : <code class="language-css token selector">nav</code>),
-				un sélecteur de pseudo-classe (ex. : <code class="language-css token selector">:valid</code>),
-				un sélecteur d’attribut (ex. : <code class="language-css token selector">a[href]</code>),
-				un sélecteur de classe (ex. : <code class="language-css token selector">.nouvelles</code>) ou
-				un sélecteur d’identifiant (ex. : <code class="language-css token selector">#contact</code>).
-			</p>
-			<p>
-				<strong>Explications qui restent ici.-</strong>
-				Un élément peut être désigné par un <code class="language-css token selector">#identifiant</code>,
-				par un type défini par son nom de <code class="language-css token selector">balise</code>,
-				ou par diverses qualités définies par ses attributs ou ses propriétés.
-				L’identifiant fonctionne un peu comme un nom propre,
-				le type comme un nom commun
-				et les diverses qualités comme des adjectifs ou des compléments du nom.
-				Parmi ces qualités on trouve notamment des <code class="language-css token selector">.classes</code>
-				et des <code class="language-css token selector">:pseudo-classes</code>.
 				Les règles suivantes s’appliquent à la rédaction des sélecteurs, par ordre
-				décroissant d’importance et sous réserve de la compatibilité recherchée.
+				décroissant d’importance et sous réserve du niveau de compatibilité recherché.
 			</p>
 			<ol>
 				<li>
@@ -375,10 +383,16 @@ h2</mark> {
 						un emplacement dans l’arborescence du document.
 					</p>
 					<aside class="bonus">
-						<p>Principales pseudo-classes d’état :</p>
+						<p>
+							Par exemple, on préférera
+							<code class="language-css token selector">:read-only</code>
+							à <code class="language-css token selector">[readonly]</code>
+							ou à une classe définie pour l’occasion et gérée par un script.
+						</p>
+						<p>Les principales pseudo-classes concernées sont :</p>
 						<ul>
 							<li>
-								dynamiques ou d’interaction:
+								État dynamique ou d’interaction :
 								<code class="language-css token selector">:link</code>,
 								<code class="language-css token selector">:visited</code>,
 								<code class="language-css token selector">:active</code>,
@@ -387,27 +401,27 @@ h2</mark> {
 								<code class="language-css token selector">:target</code> ;
 							</li>
 							<li>
-								possibilités de saisie:
+								Possibilités de saisie :
 								<code class="language-css token selector">:disabled</code>,
 								<code class="language-css token selector">:enabled</code>,
 								<code class="language-css token selector">:read-write</code>,
 								<code class="language-css token selector">:read-only</code> ;
 							</li>
 							<li>
-								saisie proprement dite:
+								État d’une saisie :
 								<code class="language-css token selector">:blank</code>,
 								<code class="language-css token selector">:checked</code>,
 								<code class="language-css token selector">:default</code> ;
 							</li>
 							<li>
-								validation de saisie:
+								État de validation d’une saisie :
 								<code class="language-css token selector">:invalid</code>,
 								<code class="language-css token selector">:valid</code>,
 								<code class="language-css token selector">:required</code>,
 								<code class="language-css token selector">:optional</code> ;
 							</li>
 							<li>
-								structure:
+								Propriétés de structure :
 								<code class="language-css token selector">:root</code>,
 								<code class="language-css token selector">:empty</code>,
 								<code class="language-css token selector">:lang()</code>.
@@ -417,7 +431,8 @@ h2</mark> {
 				</li>
 				<li>
 					<p>
-						Quand un élément peut être défini par des attributs déjà existants
+						Quand un élément peut être défini par des attributs ou classes
+						déjà existants
 						pour sa sémantique, son fonctionnement ou son accessibilité,
 						il est <abbr title="" class="rfc2119">recommandé</abbr>
 						de préférer cette solution aux solutions suivantes ou à tout autre.
@@ -428,28 +443,45 @@ h2</mark> {
 					</p>
 					<aside class="bonus">
 						<p>
-							Exemples&nbsp;:
+							Par exemple, on préférera utiliser
+							<code class="language-css token selector">[rel~=bookmark]</code>
+							pour un auto-lien, plutôt que de créer une classe,
+							<code class="language-css token selector">.self-link</code>
+							(un auto-lien est  un lien placé dans le titre d’une section et qui
+							renvoie à cette section elle-même).
 						</p>
-						<ul>
-							<li>
-								<code class="language-css token selector">[rel~=bookmark]</code> pour un auto-lien,
-								c’est à dire un lien placé dans le titre d’une section et qui renvoie à cette
-								section elle-même
-							</li>
-							<li>
-								<code class="language-css token selector">[open]</code> pour l’état
-								d’un élément <code class="language-html">&lt;details></code>
-								(mis à jour automatiquement par le navigateur)
-							</li>
-							<li>
-								<code class="language-css token selector">[role=toolbar]</code> ou autre
-								indication de la fonction d’un élément particulier.
-							</li>
-							<li>
-								<code class="language-css token selector">[aria-busy=true]</code>
-								ou de nombreux autres attributs ARIA permettant d’améliorer l’accessibilité
-							</li>
-						</ul>
+						<p>
+							De même, on préférera utiliser l’attribut
+							<code class="language-css token selector">[open]</code> pour suivre
+							l’état d’un élément <code class="language-html">&lt;details></code>,
+							qui a l’avantage d’être mis à jour automatiquement par le navigateur,
+							plutôt que de créer artificiellement une classe
+							(<code class="language-css token selector">.open</code>) qu’il faudrait
+							mettre à jour à l’aide d’un script.
+						</p>
+						<p>
+							Pour la dimension sémantique, cette règle favorise en particulier les
+							<em>microformats</em>, qui sont une extension possible du HTML 5
+							qui s’appuie sur des noms de classes standardisés.
+							On pourra donc utiliser par exemple
+							<code class="language-css token selector">.h-entry</code> pour
+							désigner un contenu daté et
+							<code class="language-css token selector">.h-entry .p-author</code>
+							pour désigner son auteur,
+							plutôt que de créer des désignations spécifiques à tel ou tel site.
+						</p>
+						<p>
+							Il est également intéressant d’utiliser les attributs ARIA,
+							qui précisent la fonction (p. ex.
+							<code class="language-css token selector">[role=toolbar]</code>)
+							ou l’état (p. ex.
+							<code class="language-css token selector">[aria-busy=true]</code>)
+							d’éléments pour améliorer l’accessibilité d’une interface.
+						</p>
+						<p>
+							Cette règle s’applique aussi aux composants web ou à leurs
+							éléments, souvent associés à des classes ou attributs spécifiques.
+						</p>
 						<p>
 							Pour certains sélecteurs rares, il peut être utile d’ajouter un commentaire
 							à la feuille de style pour indiquer sa signification ou renvoyer vers une
@@ -459,7 +491,29 @@ h2</mark> {
 				</li>
 				<li>
 					<p>
-						(à compléter)
+						Quand les règles précédentes ne s’appliquent pas,
+						on <abbr title="" class="rfc2119">peut</abbr>
+						désigner un élément à l’aide d’une classe ou d’un attribut personnalisés.
+					</p>
+					<p>
+						(à compléter: attributs personnalisés quand utile à des scripts)
+					</p>
+					<p>
+						(à compléter: nommer une classe personnalisée: sémantique, fonction, état, structure)
+					</p>
+					<p>
+						(à compléter: préférer le niveau le plus haut)
+					</p>
+				</li>
+				<li>
+					<p>
+						Le nom des identifiants, des classes et des attributs personnalisés
+						<abbr title="" class="rfc2119">doit</abbr>
+						être défini et utilisé de façon sensible à la casse
+						(différence minuscules/majuscules).
+					</p>
+					<p>
+						(à compléter: kebab-case/camelCase pour les attributs personnalisés)
 					</p>
 				</li>
 			</ol>
@@ -470,7 +524,7 @@ h2</mark> {
 				<ol>
 					<li>
 						<p>
-							TODO
+							(à rédiger)
 						</p>
 					</li>
 				</ol>
