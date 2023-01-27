@@ -347,32 +347,65 @@ h2</mark> {
 				Les règles suivantes s’appliquent à la rédaction des sélecteurs, par ordre
 				décroissant d’importance et sous réserve du niveau de compatibilité recherché.
 			</p>
+			<p>
+				Dans ces règles, la négation d’une balise
+				(<code class="language-css token selector">:not(article)</code>)
+				est assimilée à une balise,
+				la négation d’une pseudo-classe
+				(<code class="language-css token selector">:not(:lang(fr))</code>)
+				à une pseudo-classe
+				et la négation d’une classe ou d’un attribut
+				(<code class="language-css token selector">:not(.dense)</code>)
+				à une classe ou un attribut, respectivement.
+			</p>
 			<ol>
 				<li>
 					<p>
-						Quand un élément peut être défini par un type, une balise,
+						Un sélecteur <abbr title="" class="rfc2119">devrait</abbr>
+						désigner ses cibles le plus haut possible dans l’arborescence de la
+						page.
+					</p>
+					<aside class="bonus">
+						<p>
+							Par exemple, pour définir la police par défaut d’un document,
+							il ne faut pas désigner séparément, les paragraphes, les listes
+							etc., mais définir celle-ci sur le sélecteur
+							<code class="language-css token selector">:root</code>.
+						</p>
+						<p>
+							Autre exemple, on préférera désigner une liste,
+							<code class="language-css token selector">ul</code> ou
+							<code class="language-css token selector">ol</code>,
+							plutôt que ses <code class="language-css token selector">li</code>,
+							quand c’est possible.
+						</p>
+					</aside>
+				</li>
+				<li>
+					<p>
+						Quand des éléments peuvent être définis par un type, une balise,
 						il est <abbr title="" class="rfc2119">recommandé</abbr>
 						de préférer cette solution aux solutions suivantes ou à tout autre.
 					</p>
 					<aside class="bonus">
 						<p>
-							Par exemple, utiliser de préférence une balise sémantique
+							Par exemple, on préférera une balise sémantique
 							<code class="language-html">&lt;article></code> plutôt
 							qu’un attribut ARIA (<code class="language-html no-wrap">&lt;… role="article"></code>)
 							ou qu’une classe (<code class="language-html no-wrap">&lt;… class="article"></code>).
 						</p>
 						<p>
-							Comme il est possible que plusieurs balises <code class="language-html">&lt;html></code>
-							apparaissent dans un document XML ou HTML 5, cette règle ne s’applique pas
-							au type <code class="language-css token selector">html</code> quand il s’agit
-							de désigner le document entier.
+							⚠️ Comme plusieurs balises <code class="language-html">&lt;html></code>
+							peuvent apparaître dans un document XML ou HTML 5 (du fait de l’extensibilité), cette
+							règle ne s’applique pas à la balise <code class="language-css token selector">html</code>
+							quand on souhaite désigner le document entier.
 							Dans ce cas, on préférera <code class="language-css token selector">:root</code>.
 						</p>
 					</aside>
 				</li>
 				<li>
 					<p>
-						Quand un élément peut être défini par une pseudo-classe décrivant un état
+						Quand des éléments peuvent être définis par une pseudo-classe décrivant un état
 						ou une propriété,
 						il est <abbr title="" class="rfc2119">recommandé</abbr>
 						de préférer cette solution aux solutions suivantes ou à tout autre.
@@ -386,8 +419,8 @@ h2</mark> {
 						<p>
 							Par exemple, on préférera
 							<code class="language-css token selector">:read-only</code>
-							à <code class="language-css token selector">[readonly]</code>
-							ou à une classe définie pour l’occasion et gérée par un script.
+							plutôt que <code class="language-css token selector">[readonly]</code>
+							ou qu’une classe définie pour l’occasion et gérée par un script.
 						</p>
 						<p>Les principales pseudo-classes concernées sont :</p>
 						<ul>
@@ -441,6 +474,13 @@ h2</mark> {
 						C’est <abbr title="" class="rfc2119">recommandé</abbr>, de même,
 						quand de tels attributs pourraient être ajoutés sans difficulté particulière.
 					</p>
+					<p>
+						Les attributs personnalisés (<code class="language-html token attr-name">data-…</code>)
+						<abbr title="" class="rfc2119">doivent</abbr> permettre une conversion
+						bidirectionnelle avec le JavaScript.
+						Il est <abbr title="" class="rfc2119">recommandé</abbr>,
+						pour cela, de les écrire en <abbr title="">kebab-case</abbr>.
+					</p>
 					<aside class="bonus">
 						<p>
 							Par exemple, on préférera utiliser
@@ -464,9 +504,9 @@ h2</mark> {
 							<em>microformats</em>, qui sont une extension possible du HTML 5
 							qui s’appuie sur des noms de classes standardisés.
 							On pourra donc utiliser par exemple
-							<code class="language-css token selector">.h-entry</code> pour
+							<code class="language-css token selector">.hentry</code> pour
 							désigner un contenu daté et
-							<code class="language-css token selector">.h-entry .p-author</code>
+							<code class="language-css token selector">.hentry .pauthor</code>
 							pour désigner son auteur,
 							plutôt que de créer des désignations spécifiques à tel ou tel site.
 						</p>
@@ -493,16 +533,74 @@ h2</mark> {
 					<p>
 						Quand les règles précédentes ne s’appliquent pas,
 						on <abbr title="" class="rfc2119">peut</abbr>
-						désigner un élément à l’aide d’une classe ou d’un attribut personnalisés.
+						désigner un élément à l’aide d’une classe personnalisées.
+						Le choix d’un nom de classe <abbr title="" class="rfc2119">devrait</abbr>
+						se limiter aux cas suivants.
 					</p>
+					<ul>
+						<li>
+							Sémantique :
+							décrit le rôle que peut occuper dans le texte le contenu des éléments cibles.
+							<aside class="example">
+								<p>
+									<code class="language-css token selector">.name</code>
+									pour désigner le nom d’une personne
+									(<code class="language-html">Alan &lt;span class="name">Turing&lt;/span></code>),
+									par exemple pour le rendre en petites-majuscules.
+								</p>
+							</aside>
+							<aside class="bonus">
+								<p>
+									C’est vers ce choix qu’on peut se tourner quand on imagine
+									désigner une mise en forme particulière.
+									Ainsi, <code class="language-css token selector">.box</code>
+									est correct pour présiser qu’une section est un encadré
+									(<code class="language-html">&lt;aside class="box"></code>),
+									mais pas pour simplement dire qu’on veut une bordure.
+								</p>
+							</aside>
+						</li>
+						<li>
+							Fonction :
+							décrit le rôle que les éléments cibles peuvent jouer dans une page, une interface
+							ou un composant.
+							<aside class="example">
+								<p>
+									<code class="language-css token selector">.here</code>
+									pour désigner dans un menu de navigation une rubrique contenant
+									la page en cours
+									(<code class="language-html">&lt;a class="here" href=…></code>),
+									par exemple pour la mettre en valeur.
+								</p>
+							</aside>
+							<aside class="bonus">
+								<p>
+									C’est vers ce choix qu’on peut se tourner quand on imagine
+									désigner une organisation particulière de l’espace.
+									Par exemple, plutôt que d’utiliser
+									<code class="language-css token selector">.grid</code> pour
+									désigner une mosaïque d’images, on peut penser à
+									<code class="language-css token selector">.album</code>.
+								</p>
+							</aside>
+						</li>
+						<li>
+							État :
+							pour désigner l’état d’un élément.
+							<aside class="example">
+								<p>
+									<code class="language-css token selector">.open</code>
+									pour désigner l’état d’un menu “burger”
+									(<code class="language-html">&lt;nav class="open"></code>),
+									typiquement pour effectivement en afficher le contenu.
+								</p>
+							</aside>
+						</li>
+					</ul>
 					<p>
-						(à compléter: attributs personnalisés quand utile à des scripts)
-					</p>
-					<p>
-						(à compléter: nommer une classe personnalisée: sémantique, fonction, état, structure)
-					</p>
-					<p>
-						(à compléter: préférer le niveau le plus haut)
+						Notamment,
+						une classe <abbr title="" class="rfc2119">ne devrait pas</abbr>
+						désigner une mise en forme particulière.
 					</p>
 				</li>
 				<li>
@@ -511,9 +609,6 @@ h2</mark> {
 						<abbr title="" class="rfc2119">doit</abbr>
 						être défini et utilisé de façon sensible à la casse
 						(différence minuscules/majuscules).
-					</p>
-					<p>
-						(à compléter: kebab-case/camelCase pour les attributs personnalisés)
 					</p>
 				</li>
 			</ol>
