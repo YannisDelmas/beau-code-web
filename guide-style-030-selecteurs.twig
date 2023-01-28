@@ -1,6 +1,6 @@
 {% embed './views/partials/_recommandation.twig' %}
 	{% set recId      = 'selecteurs' %}
-	{% set recVersion = '1.0.0-beta.2' %}
+	{% set recVersion = '1.0.0' %}
 	{% block recTitle %}
 				Choisir ses sélecteurs CSS
 	{% endblock %}
@@ -287,7 +287,89 @@
 				<ol>
 					<li>
 						<p>
-							(à rédiger)
+							Ceci permet de gagner en généricité, d’où une meilleure
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>.
+							Cette règle réduit le plus souvent le nombre de cibles, d’où une meilleure
+							<a class="principle" href="#ppe-performance">performance</a>.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="principes.html#ppe-maintenance">Maintenabilité</a> :
+							la spécificité est ainsi plus faible.
+						</p>
+						<p>
+							<a class="principle" href="#ppe-lisible">Lisibilité</a> :
+							les balises sont un vocabulaire commun à tous les sites ;
+							leur sémantique ne nécessite pas de connaître des choix
+							particuliers à tel ou tel site.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="#ppe-lisible">Lisibilité</a> :
+							comme pour la règle précédente, les pseudo-classes
+							sont un vocabulaire commun à tous les sites ;
+							leur sémantique ne nécessite pas de connaître des choix
+							particuliers à tel ou tel site.
+						</p>
+						<p>
+							En revanche, pour cette règle, on ne retient pas les
+							pseudo-classes de structure autres que
+							<code class="language-css token selector">:root</code>,
+							<code class="language-css token selector">:empty</code> et
+							<code class="language-css token selector">:lang()</code>,
+							dans la mesure où elles dépendent d’une structure HTML
+							plus susceptible de changer, ce qui pourrait poser des
+							problèmes de
+							<a class="principle" href="principes.html#ppe-maintenance">maintenabilité</a>.
+						</p>
+					</li>
+					<li>
+						<p>
+							Ici, il s’agit d’améliorer la
+							<a class="principle" href="#ppe-coherence">cohérence</a>
+							et, plus généralement, la
+							<a class="principle" href="#ppe-lisible">lisibilité</a> :
+							on évite de créer inutilement de nouvelles désignations.
+						</p>
+						<p>
+							<a class="principle" href="#ppe-standard">Respect des standards</a> :
+							un attribut personnalisé s’écrit
+							<code class="language-html token attr-name">data-…</code>,
+							avec au moins un caractère après le tiret,
+							est compatible avec le XML
+							et ne comporte aucune majuscule latine (ASCII).
+						</p>
+						<p>
+							L’écriture en <abbr title="">kebab-case</abbr>
+							est un moyen simple de garantir une conversion univoque
+							réversible en <abbr title="">camelCase</abbr>
+							pour l’utilisation en JavaScript.
+						</p>
+					</li>
+					<li>
+						<p>
+							<a class="principle" href="#ppe-standard">Respect des standards</a> :
+							Les règles CSS doivent permettre d’assurer une traduction
+							visuelle d’informations que les éléments et pseudo-éléments
+							ciblés doivent pouvoir transmettre à l’utilisateur.
+							Il s’agit ici de respecter la règle de division du
+							travail entre le HTML et le CSS
+							[<a href="https://www.w3.org/TR/html-design-principles/#separation-of-concerns">HTMLDP, §3.4</a>].
+						</p>
+					</li>
+					<li>
+						<p>
+							Par défaut, la syntaxe du CSS est insensible à la casse,
+							mais les identifiants sont sensibles à la casse
+							(<code class="language-css token selector">#id</code>,
+							<code class="language-css token selector">.classe</code>)
+							La sensitivité à la casse des types et attributs
+							dépend du langage.
+							Cette règle assure la
+							<a class="principle" href="#ppe-coherence">cohérence</a>
+							en se limitant au plus petit dénominateur commun.
 						</p>
 					</li>
 				</ol>
