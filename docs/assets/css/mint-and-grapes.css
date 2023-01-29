@@ -18,6 +18,7 @@
   --teinte-complements: var(--teinte-texte);
   --teinte-justifications: 200, 50%;
   --couleur-corps-texte: hsl(var(--teinte-texte), 30%);
+  --couleur-texte-discret: hsl(var(--teinte-texte), 60%);
   --couleur-titre: hsl(var(--teinte-texte), 20%);
   --couleur-mark-text: var(--couleur-titre);
   --couleur-mark1: hsl(50, 60%, 80%);
@@ -218,7 +219,7 @@ h4 > a[rel~=bookmark]::before {
 }
 
 
-/* Autres règles de mise en forme */
+/* Mise en forme générale du texte */
 
 a {
   color: hsl(var(--teinte-primaire), 41%);
@@ -252,6 +253,19 @@ figure {
     flex-wrap: wrap;
 }
 
+/* Colophon : version, date, permalien */
+
+.colophon {
+	font-size: calc(1rem / var(--inc-typo-x2));
+	margin: 0 0 1rem;
+}
+
+.colophon, .colophon a {
+	color: var(--couleur-texte-discret);
+}
+.colophon a:hover {
+	color: hsl(var(--teinte-primaire), 60%);
+}
 
 /* Principes de référence et modalités RFC-2119 */
 

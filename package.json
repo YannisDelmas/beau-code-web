@@ -1,5 +1,10 @@
 {
 	"name": "beau-code-web",
+	"homepage": "https://yannisdelmas.github.io/beau-code-web/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/YannisDelmas/beau-code-web.git"
+	},
 	"devDependencies": {
 		"npm-watch": "^0.11.0",
 		"grunt": "^1.4.1",

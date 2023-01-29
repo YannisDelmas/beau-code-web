@@ -1,4 +1,5 @@
 {# Table des matières #}
+{% set intoc = true %}
 <ul>
 	<li>
 		<a href="principes.html">BCW-0 Principes de référence pour ce site</a>
@@ -9,9 +10,10 @@
 			<li><a href="principes.html#bibliographie">Références</a></li>
 		</ul>
 	</li>
-	<li><a href="guide-generalites.html">BCW-1 Recommandations générales</a></li>
-	<li><a href="guide-html.html">BCW-2 Recommandations pour le codage en HTML</a></li>
-	<li><a href="guide-style.html">BCW-3 Recommandations pour le codage des feuilles de style</a></li>
-	<li><a href="guide-javascript.html">BCW-4 Recommandations pour le codage en JavaScript</a></li>
-	<li><a href="guide-php.html">BCW-5 Recommandations pour le codage en PHP</a></li>
+	{% set sections = ['generalites', 'html', 'style', 'javascript', 'php'] %}
+	{% for section in sections %}
+		<li>
+			{% include '../../guide-' ~ section ~ '.twig' %}
+		</li>
+	{% endfor %}
 </ul>
