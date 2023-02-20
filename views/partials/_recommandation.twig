@@ -1,11 +1,28 @@
-<section id="{{ recId }}">
-	<h2>
-		{% block recTitle %}{% endblock %}
-		<a rel="bookmark" href="#{{ recId }}"></a>
-	</h2>
-	{% block recContent %}{% endblock %}
-	<details class="rationale">
-		<summary>Justification</summary>
-		{% block recRationale %}{% endblock %}
-	</details>
-</section>
+{% set meta = meta(component) %}
+{% if intoc %}
+	<a href="{{ meta.path }}#{{ meta.slug }}">{% block recTitle %}{% endblock %}</a>
+{% else %}
+	<section id="{{ meta.slug }}">
+		<h2>
+			{% block recTitle %}{% endblock %}
+			<a rel="bookmark" href="#{{ meta.slug }}"></a>
+		</h2>
+		<p class="colophon">
+			{% if recVersion is empty %}
+				Date&nbsp;:
+			{% else %}
+				<abbr title="">Version</abbr>&nbsp;:
+				<span class="semver" data-semver="{{ recVersion }}{% if meta.commit is not empty %}+{{ meta.commit }}{% endif %}">{{ recVersion }}</span>,
+				date&nbsp;:
+			{% endif %}
+			<time datetime="{{ meta.date }}">{{ meta.date }}</time>,
+			permalink&nbsp;:
+			<a rel="bookmark" href="{{ meta.home }}{{ meta.path }}#{{ meta.slug }}"><code>{{ meta.home }}{{ meta.path }}#{{ meta.slug }}</code></a>
+		</p>
+		{% block recContent %}{% endblock %}
+		<details class="rationale">
+			<summary>Justification</summary>
+			{% block recRationale %}{% endblock %}
+		</details>
+	</section>
+{% endif %}

@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+{% if intoc %}
+	<a href="guide-{{ section }}.html">{% block docTitle %}{% endblock %}</a>
+	<ul>
+		{% block docContent %}
+			{% for component in components %}
+				<li>{% include '../../' ~ component %}</li>
+			{% endfor %}
+		{% endblock %}
+	</ul>
+{% else %}<!DOCTYPE html>
 <html lang="fr">
 <head>
 	{# Ne pas retirer la ligne suivante, qui ne s'applique pas à ce document. #}
@@ -50,3 +59,4 @@
 	<script src="{{ prismjs }}/plugins/autoloader/prism-autoloader.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
+{% endif %}
