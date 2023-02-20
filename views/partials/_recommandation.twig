@@ -12,7 +12,7 @@
 				Date&nbsp;:
 			{% else %}
 				<abbr title="">Version</abbr>&nbsp;:
-				<span class="semver">{{ recVersion }}{% if meta.commit is not empty %}+{{ meta.commit }}{% endif %}</span>,
+				<span class="semver" data-semver="{{ recVersion }}{% if meta.commit is not empty %}+{{ meta.commit }}{% endif %}">{{ recVersion }}</span>,
 				date&nbsp;:
 			{% endif %}
 			<time datetime="{{ meta.date }}">{{ meta.date }}</time>,
